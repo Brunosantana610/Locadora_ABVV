@@ -2,9 +2,11 @@ package com.example.locadora_abvv.negocios;
 
 import com.example.locadora_abvv.dados.IRepositorio;
 import com.example.locadora_abvv.dados.Repositorio;
+import com.example.locadora_abvv.exceptions.ClienteAlugadoException;
 import com.example.locadora_abvv.exceptions.ElementoExisteException;
 import com.example.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.example.locadora_abvv.negocios.beans.Cliente;
+import com.example.locadora_abvv.negocios.beans.Locacao;
 
 public class ControladorCliente {
     private IRepositorio<Cliente> repositorioClientes;
@@ -12,6 +14,7 @@ public class ControladorCliente {
     private static ControladorCliente instance;
 
     private Cliente cliente;
+    private Locacao locacao;
 
     public ControladorCliente() {
         this.repositorioClientes = new Repositorio<>("clientes.dat");
@@ -43,6 +46,12 @@ public class ControladorCliente {
 
     public void devolver (Cliente c) {
         c.setLocacao(null);
+    }
+
+    public void alugar(Locacao l) throws ClienteAlugadoException, ElementoNaoExisteExcepcion{
+        if (this.cliente.getLocacao() == null){
+            this.cliente.setLocacao(l);
+        }
     }
 }
 

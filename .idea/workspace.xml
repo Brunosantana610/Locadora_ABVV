@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/exceptions/ClienteAlugadoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/negocios/ControladorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/negocios/ControladorCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/template.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/template.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +130,7 @@
       <workItem from="1651686079762" duration="1319000" />
       <workItem from="1651892571810" duration="2867000" />
       <workItem from="1651929173560" duration="6410000" />
+      <workItem from="1651988115929" duration="1045000" />
     </task>
     <servers />
   </component>

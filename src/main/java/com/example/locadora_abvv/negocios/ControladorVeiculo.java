@@ -4,11 +4,9 @@ import com.example.locadora_abvv.dados.IRepositorio;
 import com.example.locadora_abvv.dados.Repositorio;
 import com.example.locadora_abvv.exceptions.ElementoExisteException;
 import com.example.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
-import com.example.locadora_abvv.negocios.beans.Modelo;
 import com.example.locadora_abvv.negocios.beans.Veiculo;
+
 import java.time.LocalDate;
-
-
 
 public class ControladorVeiculo {
 
@@ -28,8 +26,7 @@ public class ControladorVeiculo {
 
     public void cadastrar(Veiculo v) throws ElementoExisteException {
         LocalDate dataAtual = LocalDate.now();
-        Modelo modeloAtual = v.getModelo();
-        if(modeloAtual.getAno() < dataAtual.getYear() + 2) {
+        if(v.getModelo().getAno() < dataAtual.getYear() + 2) {
             this.repositorioVeiculos.cadastrar(v);
         }
     }

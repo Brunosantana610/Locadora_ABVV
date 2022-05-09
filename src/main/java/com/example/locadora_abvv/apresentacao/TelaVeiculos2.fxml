@@ -33,70 +33,43 @@
 -->
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.locadora_abvv.apresentacao.TelaVeiculos2Controller">
    <bottom>
-      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #483D8B;" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
       <AnchorPane prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="157.0" layoutY="2.0" text="Locadora ABVV">
+            <Label layoutX="157.0" layoutY="2.0" style="-fx-alignment: #A9A9A9;" text="Locadora ABVV">
                <font>
                   <Font size="42.0" />
                </font>
             </Label>
+            <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="331.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="331.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="167.0" promptText="Digite o veículo que procura" />
-            <Button layoutX="181.0" layoutY="14.0" mnemonicParsing="false" text="Pesquisar" />
             <VBox layoutX="8.0" layoutY="39.0" prefHeight="274.0" prefWidth="288.0">
                <children>
-                  <HBox prefHeight="31.0" prefWidth="288.0" style="-fx-background-color: gray;">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label text="Corolla 2008">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="10.0" text=" R$ 200 diária" textFill="#da140d">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
+                        <SplitMenuButton fx:id="veiculosDisponiveisBtn" layoutX="263.0" layoutY="100.0" mnemonicParsing="false" text="Veiculos" />
                      </children>
-                  </HBox>
-                  <HBox prefHeight="32.0" prefWidth="267.0" style="-fx-background-color: gray;">
-                     <children>
-                        <Label text="Quantidade dias" textFill="#222121">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <ComboBox prefHeight="25.0" prefWidth="128.0" promptText="1" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Button layoutX="8.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="309.0" text="Colocar na carteira" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
+                  </AnchorPane>
                </children>
             </VBox>
          </children>

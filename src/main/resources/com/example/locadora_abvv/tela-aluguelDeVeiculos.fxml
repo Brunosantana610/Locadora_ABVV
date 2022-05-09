@@ -4,50 +4,51 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <bottom>
-      <AnchorPane prefHeight="45.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="128.0" layoutY="8.0" text="AGRADECEMOS PELA PREFERÊNCIA!">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
+            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aluguel de veículos" textAlignment="CENTER" wrappingWidth="600.3994140625">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Text>
+               </children></HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="123.0" layoutY="54.0" text="Data de retirada:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="81.0" text="Data de entrega:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker layoutX="253.0" layoutY="79.0" promptText="DD/MM/AAAA" />
+                        <DatePicker layoutX="253.0" layoutY="52.0" promptText="DD/MM/AAAA" />
+                        <Button layoutX="394.0" layoutY="114.0" mnemonicParsing="false" text="OK" />
+                     </children></AnchorPane>
+               </children></HBox>
+            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agradecemos a preferência" textAlignment="CENTER" wrappingWidth="600.708984375">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+               </children></HBox>
          </children>
-      </AnchorPane>
-   </bottom>
-   <top>
-      <AnchorPane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="21.0" layoutY="10.0" prefHeight="26.0" prefWidth="209.0" text="Aluguel de veículos">
-               <font>
-                  <Font name="System Bold Italic" size="21.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-   </top>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="123.0" layoutY="54.0" text="Data de retirada:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="123.0" layoutY="81.0" text="Data de entrega:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <DatePicker layoutX="253.0" layoutY="52.0" promptText="DD/MM/AAAA" />
-            <DatePicker layoutX="253.0" layoutY="79.0" promptText="DD/MM/AAAA" />
-            <Button layoutX="394.0" layoutY="114.0" mnemonicParsing="false" text="OK" />
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+      </VBox>
+   </children>
+</AnchorPane>

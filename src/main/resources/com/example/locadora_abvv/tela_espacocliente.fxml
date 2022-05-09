@@ -21,9 +21,9 @@
    <top>
       <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="28.0" layoutY="6.0" text="Espaço Cliente">
+            <Label layoutX="166.0" layoutY="5.0" text="Espaço Cliente" textAlignment="CENTER">
                <font>
-                  <Font name="System Bold Italic" size="18.0" />
+                  <Font size="42.0" />
                </font>
             </Label>
          </children>

@@ -49,9 +49,9 @@
    <top>
       <AnchorPane prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="28.0" layoutY="6.0" text="Locadora ABVV">
+            <Label layoutX="157.0" layoutY="2.0" text="Locadora ABVV">
                <font>
-                  <Font name="System Bold Italic" size="22.0" />
+                  <Font size="42.0" />
                </font>
             </Label>
          </children>

@@ -4,38 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="tela aluguel, cliente e veiculo">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/Main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAdm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAluguelDeVeiculos.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoCliente.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroCliente.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroFuncionario.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoCliente1.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoFuncionario1.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoveiculo1.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaVeiculos.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/Telafuncionario.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="controladores e atualização">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-Login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-adm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-aluguelDeVeiculos.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-atualizaçãoCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-atualizaçãoFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-atualizaçãoVeiculo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-cadastroCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-cadastroFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-cadastroVeiculo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-funcionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-gerenciamentoCliente1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-gerenciamentoFuncionario1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela-gerenciamentoveiculo1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela_espacocliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/locadora_abvv/tela_veiculos.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroFuncionario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoCliente1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoCliente1Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoFuncionario1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoFuncionario1Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoVeiculo1Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/TelaGerenciamentoveiculo1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/Telafuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/locadora_abvv/apresentacao/Telafuncionario.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +149,7 @@
       <workItem from="1652056724246" duration="115000" />
       <workItem from="1652056986455" duration="467000" />
       <workItem from="1652057638348" duration="127000" />
+      <workItem from="1652066147574" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="Exceção cliente">
       <created>1652053939517</created>
@@ -181,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652054060118</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="controladores e atualização">
+      <created>1652065376394</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652065376394</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +193,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Exceção cliente" />
     <MESSAGE value="tela aluguel, cliente e veiculo" />
-    <option name="LAST_COMMIT_MESSAGE" value="tela aluguel, cliente e veiculo" />
+    <MESSAGE value="controladores e atualização" />
+    <option name="LAST_COMMIT_MESSAGE" value="controladores e atualização" />
   </component>
 </project>

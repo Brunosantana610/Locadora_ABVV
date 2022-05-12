@@ -2,6 +2,6 @@
     requires javafx.controls;
     requires javafx.fxml;
 
-        exports com.example.locadora_abvv;
-        opens com.example.locadora_abvv to javafx.fxml;
+        exports com.locadora_abvv;
+        opens com.locadora_abvv to javafx.fxml;
     }

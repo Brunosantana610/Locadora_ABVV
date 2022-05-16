@@ -8,12 +8,16 @@ public class Locacao {
     private LocalDate dataFim;
     private LocalDate dataEntrega;
     private double valorDiaria;
+    private Cliente cliente;
+    private Veiculo veiculo;
 
-    public Locacao(LocalDate dataInicio, LocalDate dataFim, LocalDate dataEntrega, double valorDiaria) {
+    public Locacao(LocalDate dataInicio, LocalDate dataFim, LocalDate dataEntrega, double valorDiaria, Cliente cliente, Veiculo veiculo) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.dataEntrega = dataEntrega;
         this.valorDiaria = valorDiaria;
+        this.cliente = cliente;
+        this.veiculo = veiculo;
     }
 
     public LocalDate getDataInicio() {
@@ -58,5 +62,18 @@ public class Locacao {
         valor = (valorDiaria * diasUtilizados) + valorMultaTotal;
         return valor;
     }
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
 }

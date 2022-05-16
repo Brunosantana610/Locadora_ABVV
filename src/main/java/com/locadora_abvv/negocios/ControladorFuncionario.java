@@ -22,9 +22,11 @@ public class ControladorFuncionario {
     }
 
     public void cadastrar(Funcionario f) throws ElementoExisteException {
-        if (f.calcularIdade() >= 18) {
-            this.repositorioFuncionarios.cadastrar(f);
-        }
+        if (f.getFuncao()==2)
+            if (f.calcularIdade() >= 18) {
+                this.repositorioFuncionarios.cadastrar(f);
+            }
+
     }
 
     public void listar(){
@@ -32,10 +34,12 @@ public class ControladorFuncionario {
     }
 
     public void remover(Funcionario f) throws ElementoNaoExisteExcepcion {
-        this.repositorioFuncionarios.remover(f);
+        if (f.getFuncao()==2)
+            this.repositorioFuncionarios.remover(f);
     }
 
     public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion {
-        this.repositorioFuncionarios.atualizar(f);
+        if (f.getFuncao()==2)
+            this.repositorioFuncionarios.atualizar(f);
     }
 }

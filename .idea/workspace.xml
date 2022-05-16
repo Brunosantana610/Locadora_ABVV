@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="telas">
+    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="tirando example e movendo fxml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Locacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Locacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaAdm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAdm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaAluguelDeVeiculos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaAluguelDeVeiculos2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaAtualizacaoCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAtualizacaoCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaAtualizacaoFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaAtualizacaoVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaCadastroCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCadastroCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaCadastroFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCadastroFuncionario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaCadastroVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCadastroVeiculo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaVeiculos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaVeiculos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TelaVeiculos2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaVeiculos2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Telafuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/Telafuncionario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tela-areaCliente.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tela-veiculos.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +35,8 @@
       <list>
         <option value="Interface" />
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -67,6 +82,7 @@
       <recent name="com.example.locadora_abvv.negocios.beans" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vinic\Documents\Locadora_ABVV\src\main\resources\com\locadora_abvv" />
       <recent name="C:\Users\vinic\Documents\Locadora_ABVV\src\main\java\com\example" />
       <recent name="C:\Users\vinic\Documents\Locadora_ABVV\Resources" />
     </key>

@@ -10,14 +10,16 @@ public class Locacao {
     private double valorDiaria;
     private Cliente cliente;
     private Veiculo veiculo;
+    private boolean ativo;
 
-    public Locacao(LocalDate dataInicio, LocalDate dataFim, LocalDate dataEntrega, double valorDiaria, Cliente cliente, Veiculo veiculo) {
+    public Locacao(LocalDate dataInicio, LocalDate dataFim, LocalDate dataEntrega, double valorDiaria, Cliente cliente, Veiculo veiculo, boolean ativo) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.dataEntrega = dataEntrega;
         this.valorDiaria = valorDiaria;
         this.cliente = cliente;
         this.veiculo = veiculo;
+        this.ativo = true;
     }
 
     public LocalDate getDataInicio() {
@@ -75,5 +77,12 @@ public class Locacao {
 
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
+    }
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }

@@ -32,10 +32,7 @@ public class ControladorLocacao {
     public void listar(){
         this.repositorioLocacoes.listar();
     }
-
-    public void remover(Locacao l) throws ElementoNaoExisteExcepcion {
-        this.repositorioLocacoes.remover(l);
-    }
+    
 
     public void atualizar(Locacao l) throws ElementoNaoExisteExcepcion {
         this.repositorioLocacoes.atualizar(l);

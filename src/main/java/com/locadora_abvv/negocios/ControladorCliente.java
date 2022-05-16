@@ -44,15 +44,6 @@ public class ControladorCliente {
         this.repositorioClientes.atualizar(c);
     }
 
-    public void devolver (Cliente c) {
-        c.setLocacao(null);
-    }
-
-    public void alugar(Locacao l) throws ClienteAlugadoException, ElementoNaoExisteExcepcion{
-        if (this.cliente.getLocacao() == null){
-            this.cliente.setLocacao(l);
-        }
-    }
 }
 
 

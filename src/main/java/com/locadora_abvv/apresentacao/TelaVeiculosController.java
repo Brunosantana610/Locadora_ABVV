@@ -2,16 +2,12 @@ package com.locadora_abvv.apresentacao;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.SplitMenuButton;
 
 public class TelaVeiculosController {
 
     @FXML
-    private TextField pesquisaField;
-
-    @FXML
-    private Button pesquisarBtn;
-
+    private SplitMenuButton veiculosDisponiveisBtn;
 
     @FXML
     private Button voltarBtn;

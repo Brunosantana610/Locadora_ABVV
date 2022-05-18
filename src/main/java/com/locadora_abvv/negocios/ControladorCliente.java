@@ -30,6 +30,7 @@ public class ControladorCliente {
         if(c.calcularIdade() >= 18 && c.getCnh() != null) {
             this.repositorioClientes.cadastrar(c);
         }
+
     }
 
     public void listar(){

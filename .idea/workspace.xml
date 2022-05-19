@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="RN funcionário">
+    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="ScreenManager">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaVeiculos2Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaVeiculosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaVeiculosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/dados/Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/dados/Repositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaVeiculos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaVeiculos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaVeiculos2.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +141,8 @@
       <workItem from="1652066147574" duration="374000" />
       <workItem from="1652747257618" duration="3157000" />
       <workItem from="1652818823199" duration="1015000" />
-      <workItem from="1652820155163" duration="7129000" />
+      <workItem from="1652820155163" duration="7273000" />
+      <workItem from="1652930577612" duration="904000" />
     </task>
     <task id="LOCAL-00001" summary="Exceção cliente">
       <created>1652053939517</created>
@@ -178,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652730656805</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ScreenManager">
+      <created>1652842700059</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652842700059</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +202,7 @@
     <MESSAGE value="tela aluguel, cliente e veiculo" />
     <MESSAGE value="controladores e atualização" />
     <MESSAGE value="RN funcionário" />
-    <option name="LAST_COMMIT_MESSAGE" value="RN funcionário" />
+    <MESSAGE value="ScreenManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="ScreenManager" />
   </component>
 </project>

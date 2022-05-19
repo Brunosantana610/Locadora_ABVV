@@ -1,5 +1,6 @@
 package com.locadora_abvv.apresentacao;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -20,6 +21,9 @@ public class TelaAtualizacaoVeiculoController {
     private TextArea descricaoField;
 
     @FXML
+    private Button enviarBtn;
+
+    @FXML
     private TextField modeloField;
 
     @FXML
@@ -30,5 +34,15 @@ public class TelaAtualizacaoVeiculoController {
 
     @FXML
     private Button voltarBtn;
+
+    @FXML
+    void enviarBtnClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void voltarBtnClicked(ActionEvent event) {
+
+    }
 
 }

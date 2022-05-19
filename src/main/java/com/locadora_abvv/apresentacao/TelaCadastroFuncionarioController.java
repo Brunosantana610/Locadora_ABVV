@@ -1,5 +1,6 @@
 package com.locadora_abvv.apresentacao;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -15,6 +16,9 @@ public class TelaCadastroFuncionarioController {
 
     @FXML
     private TextField emailField;
+
+    @FXML
+    private Button enviarBtn;
 
     @FXML
     private TextField funcaoField;
@@ -39,5 +43,15 @@ public class TelaCadastroFuncionarioController {
 
     @FXML
     private Button voltarBtn;
+
+    @FXML
+    void enviarBtnClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void voltarBtnClicked(ActionEvent event) {
+
+    }
 
 }

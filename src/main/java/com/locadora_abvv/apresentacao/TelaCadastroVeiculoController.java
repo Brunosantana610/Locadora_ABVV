@@ -1,5 +1,6 @@
 package com.locadora_abvv.apresentacao;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -33,5 +34,15 @@ public class TelaCadastroVeiculoController {
 
     @FXML
     private Button voltarBtn;
+
+    @FXML
+    void enviarBtnClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void voltarBtnClicked(ActionEvent event) {
+
+    }
 
 }

@@ -22,14 +22,13 @@ public class ControladorFuncionario {
     }
 
     public void cadastrar(Funcionario f) throws ElementoExisteException {
-        if (f.getFuncao()==2)
+        if (f.getFuncao()==2) {
             if (f.calcularIdade() >= 18) {
                 this.repositorioFuncionarios.cadastrar(f);
+            } else {
+                throw new IllegalArgumentException("ERRO: Funcionário não pode ter menos de 18 anos");
             }
-        else{
-            throw new IllegalArgumentException("ERRO: Funcionário não pode ter menos de 18 anos");
-            }
-
+        }
     }
 
     public void listar(){

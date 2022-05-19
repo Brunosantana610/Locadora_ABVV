@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="telas">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_05_2022_12_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_05_2022_12_36__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java" afterDir="false" />
     </list>

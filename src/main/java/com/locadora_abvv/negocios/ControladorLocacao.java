@@ -47,4 +47,9 @@ public class ControladorLocacao {
     public void atualizar(Locacao l) throws ElementoNaoExisteExcepcion {
         this.repositorioLocacoes.atualizar(l);
     }
+
+    public void finalizarLocacao(Locacao l){
+        l.calcularValorTotal(l.getVeiculo());
+        l.setAtivo(false);
+    }
 }

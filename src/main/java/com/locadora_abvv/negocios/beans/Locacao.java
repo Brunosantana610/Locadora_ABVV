@@ -54,13 +54,14 @@ public class Locacao {
         this.valorDiaria = valorDiaria;
     }
 
-    public double calcularValorTotal(double valor, int dias, int diasExcedentes, int diasUtilizados, double ValorMulta){
+    public double calcularValorTotal(Veiculo p){
+        double valor; int dias; int diasExcedentes; int diasUtilizados; double valorMulta = p.getValorMulta();
         Period periodo = Period.between(dataInicio, dataFim);
         Period periodoUtilizado = Period.between(dataInicio, dataEntrega);
         dias = periodo.getDays();
         diasUtilizados = periodoUtilizado.getDays();
-        diasExcedentes = periodoUtilizado.getDays() - dias;
-        double valorMultaTotal = diasExcedentes * ValorMulta;
+        diasExcedentes = (periodoUtilizado.getDays() - dias);
+        double valorMultaTotal = diasExcedentes * valorMulta;
         valor = (valorDiaria * diasUtilizados) + valorMultaTotal;
         return valor;
     }

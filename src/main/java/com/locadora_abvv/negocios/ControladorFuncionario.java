@@ -26,6 +26,9 @@ public class ControladorFuncionario {
             if (f.calcularIdade() >= 18) {
                 this.repositorioFuncionarios.cadastrar(f);
             }
+        else{
+            throw new IllegalArgumentException("ERRO: Funcionário não pode ter menos de 18 anos");
+            }
 
     }
 

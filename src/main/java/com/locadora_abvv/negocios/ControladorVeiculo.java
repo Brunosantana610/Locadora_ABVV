@@ -29,6 +29,9 @@ public class ControladorVeiculo {
         if(v.getModelo().getAno() < dataAtual.getYear() + 2) {
             this.repositorioVeiculos.cadastrar(v);
         }
+        else{
+            throw new IllegalArgumentException("ERRO: Modelo não pode ser 2 anos ou mais a frente do ano vigente");
+        }
     }
 
 

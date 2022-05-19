@@ -37,6 +37,9 @@ public class ControladorLocacao {
         if(ok) {
             this.repositorioLocacoes.cadastrar(l);
         }
+        else{
+            throw new IllegalArgumentException("ERRO: Cliente já possui uma locação ativa");
+        }
     }
 
     public void listar(){

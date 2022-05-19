@@ -30,6 +30,9 @@ public class ControladorCliente {
         if(c.calcularIdade() >= 18 && c.getCnh() != null) {
             this.repositorioClientes.cadastrar(c);
         }
+        else{
+            throw new IllegalArgumentException("ERRO: Cliente não pode ter menos de 18 anos e/ou ter CNH nula");
+        }
 
     }
 

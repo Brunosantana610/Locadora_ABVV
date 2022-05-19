@@ -55,11 +55,35 @@ public class ControladorCliente {
     }
 
     public void remover (Cliente c) throws ElementoNaoExisteExcepcion {
-        this.repositorioClientes.remover(c);
+        boolean ok = false;
+        for(Cliente cliente : this.repositorioClientes.listar()){
+            if(cliente == c){
+                ok = true;
+            }
+            break;
+        }
+        if(ok) {
+            this.repositorioClientes.remover(c);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(c);
+        }
     }
 
     public void atualizar (Cliente c) throws ElementoNaoExisteExcepcion {
-        this.repositorioClientes.atualizar(c);
+        boolean ok = false;
+        for(Cliente cliente : this.repositorioClientes.listar()){
+            if(cliente == c){
+                ok = true;
+            }
+            break;
+        }
+        if(ok) {
+            this.repositorioClientes.atualizar(c);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(c);
+        }
     }
 
 }

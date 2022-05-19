@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Locacao;
 import com.locadora_abvv.negocios.beans.Cliente;
 
@@ -23,23 +24,35 @@ public class ControladorLocacao {
     }
 
     public void cadastrar(Locacao l) throws ElementoExisteException {
-
         boolean ok = true;
-        for(Locacao loc : this.repositorioLocacoes.listar()){
-            if(loc.getCliente() == l.getCliente()){
-                if(loc.getAtivo() == true){
-                    ok = false;
+        for(Locacao locacao : this.repositorioLocacoes.listar()){
+            if(locacao == l){
+                ok = false;
+            }
+            break;
+        }
+        if(ok) {
+            boolean okey = true;
+            for(Locacao loc : this.repositorioLocacoes.listar()){
+                if(loc.getCliente() == l.getCliente()){
+                    if(loc.getAtivo() == true){
+                        okey = false;
+                    }
+                    break;
                 }
-                break;
+            }
+
+            if(okey) {
+                this.repositorioLocacoes.cadastrar(l);
+            }
+            else{
+                throw new IllegalArgumentException("ERRO: Cliente já possui uma locação ativa");
             }
         }
-
-        if(ok) {
-            this.repositorioLocacoes.cadastrar(l);
-        }
         else{
-            throw new IllegalArgumentException("ERRO: Cliente já possui uma locação ativa");
+            throw new ElementoExisteException(l);
         }
+
     }
 
     public void listar(){

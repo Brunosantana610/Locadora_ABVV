@@ -6,6 +6,7 @@ import com.locadora_abvv.exceptions.ClienteAlugadoException;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Cliente;
+import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Locacao;
 
 public class ControladorCliente {
@@ -27,12 +28,25 @@ public class ControladorCliente {
         return instance;
     }
     public void cadastrar(Cliente c) throws ElementoExisteException {
-        if(c.calcularIdade() >= 18 && c.getCnh() != null) {
-            this.repositorioClientes.cadastrar(c);
+        boolean ok = true;
+        for(Cliente cliente : this.repositorioClientes.listar()){
+            if(cliente == c){
+                ok = false;
+            }
+            break;
+        }
+        if(ok) {
+            if(c.calcularIdade() >= 18 && c.getCnh() != null) {
+                this.repositorioClientes.cadastrar(c);
+            }
+            else{
+                throw new IllegalArgumentException("ERRO: Cliente não pode ter menos de 18 anos e/ou ter CNH nula");
+            }
         }
         else{
-            throw new IllegalArgumentException("ERRO: Cliente não pode ter menos de 18 anos e/ou ter CNH nula");
+            throw new ElementoExisteException(c);
         }
+
 
     }
 

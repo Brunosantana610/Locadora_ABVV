@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Funcionario;
 
 public class ControladorFuncionario {
@@ -23,11 +24,24 @@ public class ControladorFuncionario {
 
     public void cadastrar(Funcionario f) throws ElementoExisteException {
         if (f.getFuncao()==2) {
-            if (f.calcularIdade() >= 18) {
-                this.repositorioFuncionarios.cadastrar(f);
-            } else {
-                throw new IllegalArgumentException("ERRO: Funcionário não pode ter menos de 18 anos");
+            boolean ok = true;
+            for(Funcionario funcionario : this.repositorioFuncionarios.listar()){
+                if(funcionario == f){
+                    ok = false;
+                }
+                break;
             }
+            if(ok) {
+                if (f.calcularIdade() >= 18) {
+                    this.repositorioFuncionarios.cadastrar(f);
+                } else {
+                    throw new IllegalArgumentException("ERRO: Funcionário não pode ter menos de 18 anos");
+                }
+            }
+            else{
+                throw new ElementoExisteException(f);
+            }
+
         }
     }
 

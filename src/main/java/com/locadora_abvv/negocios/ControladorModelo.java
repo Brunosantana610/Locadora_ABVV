@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Modelo;
 
 public class ControladorModelo {
@@ -22,7 +23,20 @@ public class ControladorModelo {
     }
 
     public void cadastrar(Modelo m) throws ElementoExisteException {
-        this.repositorioModelos.cadastrar(m);
+
+        boolean ok = true;
+        for(Modelo modelo : this.repositorioModelos.listar()){
+            if(modelo == m){
+                ok = false;
+            }
+            break;
+        }
+        if(ok) {
+            this.repositorioModelos.cadastrar(m);
+        }
+        else{
+            throw new ElementoExisteException(m);
+        }
     }
 
     public void listar(){

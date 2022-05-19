@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Veiculo;
 
 import java.time.LocalDate;
@@ -25,13 +26,26 @@ public class ControladorVeiculo {
     }
 
     public void cadastrar(Veiculo v) throws ElementoExisteException {
-        LocalDate dataAtual = LocalDate.now();
-        if(v.getModelo().getAno() < dataAtual.getYear() + 2) {
-            this.repositorioVeiculos.cadastrar(v);
+        boolean ok = true;
+        for(Veiculo veiculo : this.repositorioVeiculos.listar()){
+            if(veiculo == v){
+                ok = false;
+            }
+            break;
+        }
+        if(ok) {
+            LocalDate dataAtual = LocalDate.now();
+            if(v.getModelo().getAno() < dataAtual.getYear() + 2) {
+                this.repositorioVeiculos.cadastrar(v);
+            }
+            else{
+                throw new IllegalArgumentException("ERRO: Modelo não pode ser 2 anos ou mais a frente do ano vigente");
+            }
         }
         else{
-            throw new IllegalArgumentException("ERRO: Modelo não pode ser 2 anos ou mais a frente do ano vigente");
+            throw new ElementoExisteException(v);
         }
+        
     }
 
 

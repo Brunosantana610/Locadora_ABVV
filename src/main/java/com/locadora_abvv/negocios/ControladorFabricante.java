@@ -23,7 +23,19 @@ public class ControladorFabricante {
     }
 
     public void cadastrar(Fabricante f) throws ElementoExisteException {
-        this.repositorioFabricantes.cadastrar(f);
+        boolean ok = true;
+        for(Fabricante fabricante : this.repositorioFabricantes.listar()){
+            if(fabricante == f){
+                ok = false;
+            }
+            break;
+        }
+        if(ok) {
+            this.repositorioFabricantes.cadastrar(f);
+        }
+        else{
+            throw new ElementoExisteException(f);
+        }
     }
     public void listar(){
         this.repositorioFabricantes.listar();

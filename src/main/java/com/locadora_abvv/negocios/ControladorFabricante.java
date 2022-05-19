@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.negocios.beans.Cliente;
 import com.locadora_abvv.negocios.beans.Fabricante;
 
 public class ControladorFabricante {
@@ -42,9 +43,34 @@ public class ControladorFabricante {
     }
 
     public void remover(Fabricante f) throws ElementoNaoExisteExcepcion {
-        this.repositorioFabricantes.remover(f);
+        boolean ok = false;
+        for(Fabricante fabricante : this.repositorioFabricantes.listar()){
+            if(fabricante == f){
+                ok = true;
+            }
+            break;
+        }
+        if(ok) {
+            this.repositorioFabricantes.remover(f);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(f);
+        }
+
     }
     public void atualizar(Fabricante f) throws ElementoNaoExisteExcepcion {
-        this.repositorioFabricantes.atualizar(f);
+        boolean ok = false;
+        for(Fabricante fabricante : this.repositorioFabricantes.listar()){
+            if(fabricante == f){
+                ok = true;
+            }
+            break;
+        }
+        if(ok) {
+            this.repositorioFabricantes.atualizar(f);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(f);
+        }
     }
 }

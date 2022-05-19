@@ -16,7 +16,7 @@
          <children>
             <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
                <children>
-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" onAction="#voltarBtnClicked" prefHeight="31.0" prefWidth="51.0" text="Voltar">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -40,9 +40,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="gerenciarVeiculoBtn" mnemonicParsing="false" text="Gerenciar veiculo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="gerenciarClienteBtn" mnemonicParsing="false" text="Gerenciar cliente" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="veiculosDIsponiveisBtn" mnemonicParsing="false" text="Veiculos disponíveis" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="gerenciarVeiculoBtn" mnemonicParsing="false" onAction="#gerenciarVeiculoBtnClicked" text="Gerenciar veiculo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="gerenciarClienteBtn" mnemonicParsing="false" onAction="#gerenciarClienteBtnClicked" text="Gerenciar cliente" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="veiculosDIsponiveisBtn" mnemonicParsing="false" onAction="#veiculosDIspBtnClicked" text="Veiculos disponíveis" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </children>

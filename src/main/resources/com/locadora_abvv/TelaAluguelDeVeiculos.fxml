@@ -15,7 +15,7 @@
          <children>
             <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
                <children>
-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" onAction="#voltarBtnClicked" prefHeight="31.0" prefWidth="51.0" text="Voltar">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -42,7 +42,7 @@
                         </Label>
                         <DatePicker fx:id="entregaDatePicker" layoutX="253.0" layoutY="79.0" promptText="DD/MM/AAAA" />
                         <DatePicker fx:id="retiradaDatePicker" layoutX="253.0" layoutY="52.0" promptText="DD/MM/AAAA" />
-                        <Button fx:id="alugarBtn" layoutX="376.0" layoutY="115.0" mnemonicParsing="false" text="Alugar" />
+                        <Button fx:id="alugarBtn" layoutX="376.0" layoutY="115.0" mnemonicParsing="false" onAction="#alugarBtnClicked" text="Alugar" />
                      </children></AnchorPane>
                </children></HBox>
             <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">

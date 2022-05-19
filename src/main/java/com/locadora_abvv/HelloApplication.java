@@ -1,6 +1,7 @@
 package com.locadora_abvv;
 
 import com.locadora_abvv.apresentacao.MainController;
+import com.locadora_abvv.apresentacao.ScreenManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,13 +11,17 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("TelaAdm.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
+    public void start(Stage stage) throws Exception {
+        stage.setScene(ScreenManager.getInstance().getMainScene());
+        stage.setTitle("LOCADORA ABVV");
         stage.setResizable(false);
+        stage.setWidth(600);
+        stage.setHeight(400);
+
+        ScreenManager.getInstance().setPrimaryStage(stage);
+
         stage.show();
+
     }
 
     public static void main(String[] args) {

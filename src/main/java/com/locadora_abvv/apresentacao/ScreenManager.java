@@ -26,6 +26,15 @@ public class ScreenManager {
     private MainController mainController;
 
     private Scene telaAdm;
+
+    public static void setInstance(ScreenManager instance) {
+        ScreenManager.instance = instance;
+    }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
     private TelaAdmController telaAdmController;
 
     private Scene telaAluguelDeVeiculo;
@@ -90,10 +99,182 @@ public class ScreenManager {
     }
 
 
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public Scene getMainScene() {
+        return mainScene;
+    }
+
+    public MainController getMainController() {
+        return mainController;
+    }
+
+    public Scene getTelaAdm() {
+        return telaAdm;
+    }
+
+    public TelaAdmController getTelaAdmController() {
+        return telaAdmController;
+    }
+
+    public Scene getTelaAluguelDeVeiculo() {
+        return telaAluguelDeVeiculo;
+    }
+
+    public TelaAluguelDeVeiculoController getTelaAluguelDeVeiculoController() {
+        return telaAluguelDeVeiculoController;
+    }
+
+    public Scene getTelaAtualizacaoCliente() {
+        return telaAtualizacaoCliente;
+    }
+
+    public TelaAtualizacaoClienteController getTelaAtualizacaoClienteController() {
+        return telaAtualizacaoClienteController;
+    }
+
+    public Scene getTelaAtualizacaoFuncionario() {
+        return telaAtualizacaoFuncionario;
+    }
+
+    public TelaAtualizacaoFuncionarioController getTelaAtualizacaoFuncionarioController() {
+        return telaAtualizacaoFuncionarioController;
+    }
+
+    public Scene getTelaAtualizacaoVeiculo() {
+        return telaAtualizacaoVeiculo;
+    }
+
+    public TelaAtualizacaoVeiculoController getTelaAtualizacaoVeiculoController() {
+        return telaAtualizacaoVeiculoController;
+    }
+
+    public Scene getTelaCadastroCliente() {
+        return telaCadastroCliente;
+    }
+
+    public TelaCadastroClienteController getTelaCadastroClienteController() {
+        return telaCadastroClienteController;
+    }
+
+    public Scene getTelaCadastroFuncionario() {
+        return telaCadastroFuncionario;
+    }
+
+    public TelaCadastroFuncionarioController getTelaCadastroFuncionarioController() {
+        return telaCadastroFuncionarioController;
+    }
+
+    public Scene getTelaCadastroVeiculo() {
+        return telaCadastroVeiculo;
+    }
+
+    public TelaCadastroVeiculoController getTelaCadastroVeiculoController() {
+        return telaCadastroVeiculoController;
+    }
+
+    public Scene getTelaCliente() {
+        return telaCliente;
+    }
+
+    public TelaClienteController getTelaClienteController() {
+        return telaClienteController;
+    }
+
+    public Scene getTelaFuncionario() {
+        return telaFuncionario;
+    }
+
+    public TelaFuncionarioController getTelaFuncionarioController() {
+        return telaFuncionarioController;
+    }
+
+    public Scene getTelaVeiculos() {
+        return telaVeiculos;
+    }
+
+    public TelaVeiculosController getTelaVeiculosController() {
+        return telaVeiculosController;
+    }
+
+    public Scene getTelaBuscarCliente() {
+        return telaBuscarCliente;
+    }
+
+    public TelaBuscarClienteController getTelaBuscarClienteController() {
+        return telaBuscarClienteController;
+    }
+
+    public Scene getTelaBuscarFuncionario() {
+        return telaBuscarFuncionario;
+    }
+
+    public TelaBuscarFuncionarioController getTelaBuscarFuncionarioController() {
+        return telaBuscarFuncionarioController;
+    }
+
+    public Scene getTelaBuscarVeiculo() {
+        return telaBuscarVeiculo;
+    }
+
+    public TelaBuscarVeiculoController getTelaBuscarVeiculoController() {
+        return telaBuscarVeiculoController;
+    }
+
+    public Scene getTelaGerenciamentoCliente() {
+        return telaGerenciamentoCliente;
+    }
+
+    public TelaGerenciamentoClienteController getTelaGerenciamentoClienteController() {
+        return telaGerenciamentoClienteController;
+    }
+
+    public Scene getTelaGerenciamentoFuncionario() {
+        return telaGerenciamentoFuncionario;
+    }
+
+    public TelaGerenciamentoFuncionarioController getTelaGerenciamentoFuncionarioController() {
+        return telaGerenciamentoFuncionarioController;
+    }
+
+    public Scene getTelaGerenciamentoVeiculo() {
+        return telaGerenciamentoVeiculo;
+    }
+
+    public TelaGerenciamentoVeiculoController getTelaGerenciamentoVeiculoController() {
+        return telaGerenciamentoVeiculoController;
+    }
+
+    public Scene getTelaRemoverCliente() {
+        return telaRemoverCliente;
+    }
+
+    public TelaRemoverClienteController getTelaRemoverClienteController() {
+        return telaRemoverClienteController;
+    }
+
+    public Scene getTelaRemoverFuncionario() {
+        return telaRemoverFuncionario;
+    }
+
+    public TelaRemoverFuncionarioController getTelaRemoverFuncionarioController() {
+        return telaRemoverFuncionarioController;
+    }
+
+    public Scene getTelaRemoverVeiculo() {
+        return telaRemoverVeiculo;
+    }
+
+    public TelaRemoverVeiculoController getTelaRemoverVeiculoController() {
+        return telaRemoverVeiculoController;
+    }
+
     private void initialize(){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane mainPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/Main.fxml").openStream());
+            AnchorPane mainPane = fxmlLoader.load(getClass().getResource("Main.fxml").openStream());
             this.mainScene = new Scene(mainPane);
             this.mainController = (MainController) fxmlLoader.getController();
 
@@ -201,6 +382,8 @@ public class ScreenManager {
         }catch (IOException e){
             e.printStackTrace();
         }
+
+
 
     }
 }

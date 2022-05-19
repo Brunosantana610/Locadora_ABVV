@@ -16,7 +16,7 @@
          <children>
             <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
                <children>
-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" onAction="#voltarBtnClicked" prefHeight="31.0" prefWidth="51.0" text="Voltar">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -42,10 +42,10 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="addButton" mnemonicParsing="false" text="Adicionar" GridPane.halignment="CENTER" />
-                              <Button fx:id="attButton" mnemonicParsing="false" text="Atualizar" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Button fx:id="buscarBtn" mnemonicParsing="false" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                              <Button fx:id="removerBtn" mnemonicParsing="false" text="Remover" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="addButton" mnemonicParsing="false" onAction="#addBtnCLicked" text="Adicionar" GridPane.halignment="CENTER" />
+                              <Button fx:id="attButton" mnemonicParsing="false" onAction="#attBtnClicked" text="Atualizar" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                              <Button fx:id="buscarBtn" mnemonicParsing="false" onAction="#buscarBtnClicked" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="removerBtn" mnemonicParsing="false" onAction="#removerBtnClicked" text="Remover" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>

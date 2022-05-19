@@ -6,27 +6,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaClienteController">
    <bottom>
       <AnchorPane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #483D8B;" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="veiculosDisponiveisBtn" layoutX="217.0" layoutY="109.0" mnemonicParsing="false" text="Veículos dísponíveis" />
-            <Button fx:id="historicoBtn" layoutX="200.0" layoutY="169.0" mnemonicParsing="false" text="Histórico de veículos alugados" />
+            <Button fx:id="veiculosDisponiveisBtn" layoutX="248.0" layoutY="116.0" mnemonicParsing="false" onAction="#veiculosDispnoveisBtnClicked" text="Veículos dísponíveis" />
          </children>
       </AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #A9A9A9;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="166.0" layoutY="5.0" text="Espaço Cliente" textAlignment="CENTER">
+            <Label layoutX="166.0" layoutY="5.0" text="Espaço cliente" textAlignment="CENTER">
                <font>
                   <Font size="42.0" />
                </font>
             </Label>
-            <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+            <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" onAction="#voltarBtnClicked" prefHeight="31.0" prefWidth="51.0" text="Voltar">
                <font>
                   <Font size="10.0" />
                </font>

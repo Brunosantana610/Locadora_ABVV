@@ -86,6 +86,32 @@ public class ControladorCliente {
         }
     }
 
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Locacao getLocacao() {
+        return locacao;
+    }
+
+    public void setLocacao(Locacao locacao) {
+        this.locacao = locacao;
+    }
+
+    public Cliente buscar(String cpf){
+        for(Cliente cli: repositorioClientes.listar()){
+            if(this.cliente.getCpf().equals(cpf)){
+                return cliente;
+            }
+        }
+        return null;
+    }
+
 }
 
 

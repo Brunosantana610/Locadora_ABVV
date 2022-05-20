@@ -1,0 +1,2173 @@
+Index: src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.apresentacao;\r\n\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.layout.BorderPane;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class ScreenManager {\r\n\r\n\r\n    private static ScreenManager instance;\r\n\r\n    public static ScreenManager getInstance(){\r\n        if (instance == null) {\r\n            instance = new ScreenManager();\r\n        }\r\n        return instance;\r\n    }\r\n\r\n\r\n    private Stage primaryStage;\r\n    private Scene mainScene;\r\n    private MainController mainController;\r\n\r\n    private Scene telaAdm;\r\n\r\n    public static void setInstance(ScreenManager instance) {\r\n        ScreenManager.instance = instance;\r\n    }\r\n\r\n    public void setPrimaryStage(Stage primaryStage) {\r\n        this.primaryStage = primaryStage;\r\n    }\r\n\r\n    private TelaAdmController telaAdmController;\r\n\r\n    private Scene telaAluguelDeVeiculo;\r\n    private TelaAluguelDeVeiculoController telaAluguelDeVeiculoController;\r\n\r\n    private Scene telaAtualizacaoCliente;\r\n    private TelaAtualizacaoClienteController telaAtualizacaoClienteController;\r\n\r\n    private Scene telaAtualizacaoFuncionario;\r\n    private TelaAtualizacaoFuncionarioController telaAtualizacaoFuncionarioController;\r\n\r\n    private Scene telaAtualizacaoVeiculo;\r\n    private TelaAtualizacaoVeiculoController telaAtualizacaoVeiculoController;\r\n\r\n    private Scene telaCadastroCliente;\r\n    private TelaCadastroClienteController telaCadastroClienteController;\r\n\r\n    private Scene telaCadastroFuncionario;\r\n    private TelaCadastroFuncionarioController telaCadastroFuncionarioController;\r\n\r\n    private Scene telaCadastroVeiculo;\r\n    private TelaCadastroVeiculoController telaCadastroVeiculoController;\r\n\r\n    private Scene telaCliente;\r\n    private TelaClienteController telaClienteController;\r\n\r\n    private Scene telaFuncionario;\r\n    private TelaFuncionarioController telaFuncionarioController;\r\n\r\n    private Scene telaVeiculos;\r\n    private TelaVeiculosController telaVeiculosController;\r\n\r\n    private Scene telaBuscarCliente;\r\n    private TelaBuscarClienteController telaBuscarClienteController;\r\n\r\n    private Scene telaBuscarFuncionario;\r\n    private TelaBuscarFuncionarioController telaBuscarFuncionarioController;\r\n\r\n    private Scene telaBuscarVeiculo;\r\n    private TelaBuscarVeiculoController telaBuscarVeiculoController;\r\n\r\n    private Scene telaGerenciamentoCliente;\r\n    private TelaGerenciamentoClienteController telaGerenciamentoClienteController;\r\n\r\n    private Scene telaGerenciamentoFuncionario;\r\n    private TelaGerenciamentoFuncionarioController telaGerenciamentoFuncionarioController;\r\n\r\n    private Scene telaGerenciamentoVeiculo;\r\n    private TelaGerenciamentoVeiculoController telaGerenciamentoVeiculoController;\r\n\r\n    private Scene telaRemoverCliente;\r\n    private  TelaRemoverClienteController telaRemoverClienteController;\r\n\r\n    private Scene telaRemoverFuncionario;\r\n    private TelaRemoverFuncionarioController telaRemoverFuncionarioController;\r\n\r\n    private  Scene telaRemoverVeiculo;\r\n    private TelaRemoverVeiculoController telaRemoverVeiculoController;\r\n\r\n    private ScreenManager(){\r\n        this.initialize();\r\n    }\r\n\r\n\r\n    public Stage getPrimaryStage() {\r\n        return primaryStage;\r\n    }\r\n\r\n    public Scene getMainScene() {\r\n        return mainScene;\r\n    }\r\n\r\n    public MainController getMainController() {\r\n        return mainController;\r\n    }\r\n\r\n    public Scene getTelaAdm() {\r\n        return telaAdm;\r\n    }\r\n\r\n    public TelaAdmController getTelaAdmController() {\r\n        return telaAdmController;\r\n    }\r\n\r\n    public Scene getTelaAluguelDeVeiculo() {\r\n        return telaAluguelDeVeiculo;\r\n    }\r\n\r\n    public TelaAluguelDeVeiculoController getTelaAluguelDeVeiculoController() {\r\n        return telaAluguelDeVeiculoController;\r\n    }\r\n\r\n    public Scene getTelaAtualizacaoCliente() {\r\n        return telaAtualizacaoCliente;\r\n    }\r\n\r\n    public TelaAtualizacaoClienteController getTelaAtualizacaoClienteController() {\r\n        return telaAtualizacaoClienteController;\r\n    }\r\n\r\n    public Scene getTelaAtualizacaoFuncionario() {\r\n        return telaAtualizacaoFuncionario;\r\n    }\r\n\r\n    public TelaAtualizacaoFuncionarioController getTelaAtualizacaoFuncionarioController() {\r\n        return telaAtualizacaoFuncionarioController;\r\n    }\r\n\r\n    public Scene getTelaAtualizacaoVeiculo() {\r\n        return telaAtualizacaoVeiculo;\r\n    }\r\n\r\n    public TelaAtualizacaoVeiculoController getTelaAtualizacaoVeiculoController() {\r\n        return telaAtualizacaoVeiculoController;\r\n    }\r\n\r\n    public Scene getTelaCadastroCliente() {\r\n        return telaCadastroCliente;\r\n    }\r\n\r\n    public TelaCadastroClienteController getTelaCadastroClienteController() {\r\n        return telaCadastroClienteController;\r\n    }\r\n\r\n    public Scene getTelaCadastroFuncionario() {\r\n        return telaCadastroFuncionario;\r\n    }\r\n\r\n    public TelaCadastroFuncionarioController getTelaCadastroFuncionarioController() {\r\n        return telaCadastroFuncionarioController;\r\n    }\r\n\r\n    public Scene getTelaCadastroVeiculo() {\r\n        return telaCadastroVeiculo;\r\n    }\r\n\r\n    public TelaCadastroVeiculoController getTelaCadastroVeiculoController() {\r\n        return telaCadastroVeiculoController;\r\n    }\r\n\r\n    public Scene getTelaCliente() {\r\n        return telaCliente;\r\n    }\r\n\r\n    public TelaClienteController getTelaClienteController() {\r\n        return telaClienteController;\r\n    }\r\n\r\n    public Scene getTelaFuncionario() {\r\n        return telaFuncionario;\r\n    }\r\n\r\n    public TelaFuncionarioController getTelaFuncionarioController() {\r\n        return telaFuncionarioController;\r\n    }\r\n\r\n    public Scene getTelaVeiculos() {\r\n        return telaVeiculos;\r\n    }\r\n\r\n    public TelaVeiculosController getTelaVeiculosController() {\r\n        return telaVeiculosController;\r\n    }\r\n\r\n    public Scene getTelaBuscarCliente() {\r\n        return telaBuscarCliente;\r\n    }\r\n\r\n    public TelaBuscarClienteController getTelaBuscarClienteController() {\r\n        return telaBuscarClienteController;\r\n    }\r\n\r\n    public Scene getTelaBuscarFuncionario() {\r\n        return telaBuscarFuncionario;\r\n    }\r\n\r\n    public TelaBuscarFuncionarioController getTelaBuscarFuncionarioController() {\r\n        return telaBuscarFuncionarioController;\r\n    }\r\n\r\n    public Scene getTelaBuscarVeiculo() {\r\n        return telaBuscarVeiculo;\r\n    }\r\n\r\n    public TelaBuscarVeiculoController getTelaBuscarVeiculoController() {\r\n        return telaBuscarVeiculoController;\r\n    }\r\n\r\n    public Scene getTelaGerenciamentoCliente() {\r\n        return telaGerenciamentoCliente;\r\n    }\r\n\r\n    public TelaGerenciamentoClienteController getTelaGerenciamentoClienteController() {\r\n        return telaGerenciamentoClienteController;\r\n    }\r\n\r\n    public Scene getTelaGerenciamentoFuncionario() {\r\n        return telaGerenciamentoFuncionario;\r\n    }\r\n\r\n    public TelaGerenciamentoFuncionarioController getTelaGerenciamentoFuncionarioController() {\r\n        return telaGerenciamentoFuncionarioController;\r\n    }\r\n\r\n    public Scene getTelaGerenciamentoVeiculo() {\r\n        return telaGerenciamentoVeiculo;\r\n    }\r\n\r\n    public TelaGerenciamentoVeiculoController getTelaGerenciamentoVeiculoController() {\r\n        return telaGerenciamentoVeiculoController;\r\n    }\r\n\r\n    public Scene getTelaRemoverCliente() {\r\n        return telaRemoverCliente;\r\n    }\r\n\r\n    public TelaRemoverClienteController getTelaRemoverClienteController() {\r\n        return telaRemoverClienteController;\r\n    }\r\n\r\n    public Scene getTelaRemoverFuncionario() {\r\n        return telaRemoverFuncionario;\r\n    }\r\n\r\n    public TelaRemoverFuncionarioController getTelaRemoverFuncionarioController() {\r\n        return telaRemoverFuncionarioController;\r\n    }\r\n\r\n    public Scene getTelaRemoverVeiculo() {\r\n        return telaRemoverVeiculo;\r\n    }\r\n\r\n    public TelaRemoverVeiculoController getTelaRemoverVeiculoController() {\r\n        return telaRemoverVeiculoController;\r\n    }\r\n\r\n    private void initialize(){\r\n        try{\r\n            FXMLLoader fxmlLoader = new FXMLLoader();\r\n            AnchorPane mainPane = fxmlLoader.load(getClass().getResource(\"Main.fxml\").openStream());\r\n            this.mainScene = new Scene(mainPane);\r\n            this.mainController = (MainController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane adminPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/telaAdm.fxml\").openStream());\r\n            this.telaAdm = new Scene(adminPane);\r\n            this.telaAdmController = (TelaAdmController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane aluguelPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos.fxml\").openStream());\r\n            this.telaAluguelDeVeiculo = new Scene(aluguelPane);\r\n            this.telaAluguelDeVeiculoController = ( TelaAluguelDeVeiculoController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane attClientePane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaAtualizacaoCliente.fxml\").openStream());\r\n            this.telaAtualizacaoCliente = new Scene(attClientePane);\r\n            this.telaAtualizacaoClienteController = (TelaAtualizacaoClienteController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane attFuncionarioPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml\").openStream());\r\n            this.telaAtualizacaoFuncionario = new Scene(attFuncionarioPane);\r\n            this.telaAtualizacaoFuncionarioController = (TelaAtualizacaoFuncionarioController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane attVeiculoPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml\").openStream());\r\n            this.telaAtualizacaoVeiculo = new Scene(attVeiculoPane);\r\n            this.telaAtualizacaoVeiculoController = (TelaAtualizacaoVeiculoController) fxmlLoader.getController();\r\n\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane cadCliPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaCadastrooCliente.fxml\").openStream());\r\n            this.telaCadastroCliente = new Scene(cadCliPane);\r\n            this.telaCadastroClienteController = (TelaCadastroClienteController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane cadFuncPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaCadastrooFuncionario.fxml\").openStream());\r\n            this.telaCadastroFuncionario = new Scene(cadFuncPane);\r\n            this.telaCadastroFuncionarioController = (TelaCadastroFuncionarioController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane cadVeicPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaCadastroVeiculo.fxml\").openStream());\r\n            this.telaCadastroVeiculo = new Scene(cadVeicPane);\r\n            this.telaCadastroVeiculoController = (TelaCadastroVeiculoController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            BorderPane telaCliPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaCliente.fxml\"));\r\n            this.telaCliente = new Scene(telaCliPane);\r\n            this.telaClienteController = (TelaClienteController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane telaFuncPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaFuncionario.fxml\").openStream());\r\n            this.telaFuncionario = new Scene(telaFuncPane);\r\n            this.telaFuncionarioController = (TelaFuncionarioController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane telaVeicPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaVeiculos.fxml\").openStream());\r\n            this.telaVeiculos = new Scene(telaVeicPane);\r\n            this.telaVeiculosController = (TelaVeiculosController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane buscarCliPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaBuscarCliente.fxml\").openStream());\r\n            this.telaBuscarCliente = new Scene(buscarCliPane);\r\n            this.telaBuscarClienteController = (TelaBuscarClienteController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane buscarFunPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaBuscarFuncionario.fxml\").openStream());\r\n            this.telaBuscarFuncionario = new Scene(buscarFunPane);\r\n            this.telaBuscarFuncionarioController = (TelaBuscarFuncionarioController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane buscarVeiPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaBuscarVeiculo.fxml\").openStream());\r\n            this.telaBuscarVeiculo = new Scene(buscarVeiPane);\r\n            this.telaBuscarVeiculoController = (TelaBuscarVeiculoController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane gerenCliPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaGerenciamentoCliente.fxml\").openStream());\r\n            this.telaGerenciamentoCliente = new Scene(gerenCliPane);\r\n            this.telaGerenciamentoClienteController = (TelaGerenciamentoClienteController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane gerenFunPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml\").openStream());\r\n            this.telaGerenciamentoFuncionario = new Scene(gerenFunPane);\r\n            this.telaGerenciamentoFuncionarioController = (TelaGerenciamentoFuncionarioController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane gerenVeiPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml\").openStream());\r\n            this.telaGerenciamentoVeiculo = new Scene(gerenVeiPane);\r\n            this.telaGerenciamentoVeiculoController = (TelaGerenciamentoVeiculoController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane remoCliPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaRemoverCliente.fxml\").openStream());\r\n            this.telaRemoverCliente = new Scene(remoCliPane);\r\n            this.telaRemoverClienteController = (TelaRemoverClienteController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane remoFunPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaRemoverFuncionario.fxml\").openStream());\r\n            this.telaRemoverFuncionario = new Scene(remoFunPane);\r\n            this.telaRemoverFuncionarioController = (TelaRemoverFuncionarioController) fxmlLoader.getController();\r\n\r\n            fxmlLoader = new FXMLLoader();\r\n            AnchorPane remoVeiPane = fxmlLoader.load(getClass().getResource(\"/main/resources/com/locadora_abvv/TelaRemoverVeiculo.fxml\").openStream());\r\n            this.telaRemoverVeiculo = new Scene(remoVeiPane);\r\n            this.telaRemoverVeiculoController = (TelaRemoverVeiculoController) fxmlLoader.getController();\r\n\r\n        }catch (IOException e){\r\n            e.printStackTrace();\r\n        }\r\n\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java b/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java
+--- a/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java	(date 1653015695061)
+@@ -21,7 +21,7 @@
+     }
+ 
+ 
+-    private Stage primaryStage;
++    private Stage stage;
+     private Scene mainScene;
+     private MainController mainController;
+ 
+@@ -31,8 +31,8 @@
+         ScreenManager.instance = instance;
+     }
+ 
+-    public void setPrimaryStage(Stage primaryStage) {
+-        this.primaryStage = primaryStage;
++    public void setStage(Stage stage) {
++        this.stage = stage;
+     }
+ 
+     private TelaAdmController telaAdmController;
+@@ -94,13 +94,13 @@
+     private  Scene telaRemoverVeiculo;
+     private TelaRemoverVeiculoController telaRemoverVeiculoController;
+ 
+-    private ScreenManager(){
++    ScreenManager(){
+         this.initialize();
+     }
+ 
+ 
+-    public Stage getPrimaryStage() {
+-        return primaryStage;
++    public Stage getStage() {
++        return stage;
+     }
+ 
+     public Scene getMainScene() {
+@@ -279,103 +279,103 @@
+             this.mainController = (MainController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane adminPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/telaAdm.fxml").openStream());
++            AnchorPane adminPane = fxmlLoader.load(getClass().getResource("telaAdm.fxml").openStream());
+             this.telaAdm = new Scene(adminPane);
+             this.telaAdmController = (TelaAdmController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane aluguelPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos.fxml").openStream());
++            AnchorPane aluguelPane = fxmlLoader.load(getClass().getResource("TelaAluguelDeVeiculos.fxml").openStream());
+             this.telaAluguelDeVeiculo = new Scene(aluguelPane);
+             this.telaAluguelDeVeiculoController = ( TelaAluguelDeVeiculoController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane attClientePane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAtualizacaoCliente.fxml").openStream());
++            AnchorPane attClientePane = fxmlLoader.load(getClass().getResource("TelaAtualizacaoCliente.fxml").openStream());
+             this.telaAtualizacaoCliente = new Scene(attClientePane);
+             this.telaAtualizacaoClienteController = (TelaAtualizacaoClienteController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane attFuncionarioPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml").openStream());
++            AnchorPane attFuncionarioPane = fxmlLoader.load(getClass().getResource("TelaAtualizacaoFuncionario.fxml").openStream());
+             this.telaAtualizacaoFuncionario = new Scene(attFuncionarioPane);
+             this.telaAtualizacaoFuncionarioController = (TelaAtualizacaoFuncionarioController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane attVeiculoPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml").openStream());
++            AnchorPane attVeiculoPane = fxmlLoader.load(getClass().getResource("TelaAtualizacaoVeiculo.fxml").openStream());
+             this.telaAtualizacaoVeiculo = new Scene(attVeiculoPane);
+             this.telaAtualizacaoVeiculoController = (TelaAtualizacaoVeiculoController) fxmlLoader.getController();
+ 
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane cadCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCadastrooCliente.fxml").openStream());
++            AnchorPane cadCliPane = fxmlLoader.load(getClass().getResource("TelaCadastroCliente.fxml").openStream());
+             this.telaCadastroCliente = new Scene(cadCliPane);
+             this.telaCadastroClienteController = (TelaCadastroClienteController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane cadFuncPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCadastrooFuncionario.fxml").openStream());
++            AnchorPane cadFuncPane = fxmlLoader.load(getClass().getResource("TelaCadastroFuncionario.fxml").openStream());
+             this.telaCadastroFuncionario = new Scene(cadFuncPane);
+             this.telaCadastroFuncionarioController = (TelaCadastroFuncionarioController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane cadVeicPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCadastroVeiculo.fxml").openStream());
++            AnchorPane cadVeicPane = fxmlLoader.load(getClass().getResource("TelaCadastroVeiculo.fxml").openStream());
+             this.telaCadastroVeiculo = new Scene(cadVeicPane);
+             this.telaCadastroVeiculoController = (TelaCadastroVeiculoController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            BorderPane telaCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCliente.fxml"));
++            BorderPane telaCliPane = fxmlLoader.load(getClass().getResource("TelaCliente.fxml"));
+             this.telaCliente = new Scene(telaCliPane);
+             this.telaClienteController = (TelaClienteController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane telaFuncPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaFuncionario.fxml").openStream());
++            AnchorPane telaFuncPane = fxmlLoader.load(getClass().getResource("TelaFuncionario.fxml").openStream());
+             this.telaFuncionario = new Scene(telaFuncPane);
+             this.telaFuncionarioController = (TelaFuncionarioController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane telaVeicPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaVeiculos.fxml").openStream());
++            BorderPane telaVeicPane = fxmlLoader.load(getClass().getResource("TelaVeiculos.fxml").openStream());
+             this.telaVeiculos = new Scene(telaVeicPane);
+             this.telaVeiculosController = (TelaVeiculosController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane buscarCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaBuscarCliente.fxml").openStream());
++            AnchorPane buscarCliPane = fxmlLoader.load(getClass().getResource("TelaBuscarCliente.fxml").openStream());
+             this.telaBuscarCliente = new Scene(buscarCliPane);
+             this.telaBuscarClienteController = (TelaBuscarClienteController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane buscarFunPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaBuscarFuncionario.fxml").openStream());
++            AnchorPane buscarFunPane = fxmlLoader.load(getClass().getResource("TelaBuscarFuncionario.fxml").openStream());
+             this.telaBuscarFuncionario = new Scene(buscarFunPane);
+             this.telaBuscarFuncionarioController = (TelaBuscarFuncionarioController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane buscarVeiPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaBuscarVeiculo.fxml").openStream());
++            AnchorPane buscarVeiPane = fxmlLoader.load(getClass().getResource("TelaBuscarVeiculo.fxml").openStream());
+             this.telaBuscarVeiculo = new Scene(buscarVeiPane);
+             this.telaBuscarVeiculoController = (TelaBuscarVeiculoController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane gerenCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaGerenciamentoCliente.fxml").openStream());
++            AnchorPane gerenCliPane = fxmlLoader.load(getClass().getResource("TelaGerenciamentoCliente.fxml").openStream());
+             this.telaGerenciamentoCliente = new Scene(gerenCliPane);
+             this.telaGerenciamentoClienteController = (TelaGerenciamentoClienteController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane gerenFunPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml").openStream());
++            AnchorPane gerenFunPane = fxmlLoader.load(getClass().getResource("TelaGerenciamentoFuncionario.fxml").openStream());
+             this.telaGerenciamentoFuncionario = new Scene(gerenFunPane);
+             this.telaGerenciamentoFuncionarioController = (TelaGerenciamentoFuncionarioController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane gerenVeiPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml").openStream());
++            AnchorPane gerenVeiPane = fxmlLoader.load(getClass().getResource("TelaGerenciamentoVeiculo.fxml").openStream());
+             this.telaGerenciamentoVeiculo = new Scene(gerenVeiPane);
+             this.telaGerenciamentoVeiculoController = (TelaGerenciamentoVeiculoController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane remoCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaRemoverCliente.fxml").openStream());
++            AnchorPane remoCliPane = fxmlLoader.load(getClass().getResource("TelaRemoverCliente.fxml").openStream());
+             this.telaRemoverCliente = new Scene(remoCliPane);
+             this.telaRemoverClienteController = (TelaRemoverClienteController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane remoFunPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaRemoverFuncionario.fxml").openStream());
++            AnchorPane remoFunPane = fxmlLoader.load(getClass().getResource("TelaRemoverFuncionario.fxml").openStream());
+             this.telaRemoverFuncionario = new Scene(remoFunPane);
+             this.telaRemoverFuncionarioController = (TelaRemoverFuncionarioController) fxmlLoader.getController();
+ 
+             fxmlLoader = new FXMLLoader();
+-            AnchorPane remoVeiPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaRemoverVeiculo.fxml").openStream());
++            AnchorPane remoVeiPane = fxmlLoader.load(getClass().getResource("TelaRemoverVeiculo.fxml").openStream());
+             this.telaRemoverVeiculo = new Scene(remoVeiPane);
+             this.telaRemoverVeiculoController = (TelaRemoverVeiculoController) fxmlLoader.getController();
+ 
+Index: src/main/java/com/locadora_abvv/negocios/ControladorCliente.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.negocios;\r\n\r\nimport com.locadora_abvv.dados.IRepositorio;\r\nimport com.locadora_abvv.dados.Repositorio;\r\nimport com.locadora_abvv.exceptions.ClienteAlugadoException;\r\nimport com.locadora_abvv.exceptions.ElementoExisteException;\r\nimport com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;\r\nimport com.locadora_abvv.negocios.beans.Cliente;\r\nimport com.locadora_abvv.negocios.beans.Locacao;\r\n\r\npublic class ControladorCliente {\r\n    private IRepositorio<Cliente> repositorioClientes;\r\n\r\n    private static ControladorCliente instance;\r\n\r\n    private Cliente cliente;\r\n    private Locacao locacao;\r\n\r\n    public ControladorCliente() {\r\n        this.repositorioClientes = new Repositorio<>(\"clientes.dat\");\r\n    }\r\n\r\n    public static ControladorCliente getInstance(){\r\n        if (instance == null){\r\n            instance = new ControladorCliente();\r\n        }\r\n        return instance;\r\n    }\r\n    public void cadastrar(Cliente c) throws ElementoExisteException {\r\n        if(c.calcularIdade() >= 18 && c.getCnh() != null) {\r\n            this.repositorioClientes.cadastrar(c);\r\n        }\r\n        else{\r\n            throw new IllegalArgumentException(\"ERRO: Cliente não pode ter menos de 18 anos e/ou ter CNH nula\");\r\n        }\r\n\r\n    }\r\n\r\n    public void listar(){\r\n        this.repositorioClientes.listar();\r\n    }\r\n\r\n    public void remover (Cliente c) throws ElementoNaoExisteExcepcion {\r\n        this.repositorioClientes.remover(c);\r\n    }\r\n\r\n    public void atualizar (Cliente c) throws ElementoNaoExisteExcepcion {\r\n        this.repositorioClientes.atualizar(c);\r\n    }\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java b/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java
+--- a/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java	(date 1653014889480)
+@@ -31,7 +31,7 @@
+             this.repositorioClientes.cadastrar(c);
+         }
+         else{
+-            throw new IllegalArgumentException("ERRO: Cliente não pode ter menos de 18 anos e/ou ter CNH nula");
++            throw new ElementoExisteException(c);
+         }
+ 
+     }
+@@ -48,6 +48,32 @@
+         this.repositorioClientes.atualizar(c);
+     }
+ 
++
++    public Cliente getCliente() {
++        return cliente;
++    }
++
++    public void setCliente(Cliente cliente) {
++        this.cliente = cliente;
++    }
++
++    public Locacao getLocacao() {
++        return locacao;
++    }
++
++    public void setLocacao(Locacao locacao) {
++        this.locacao = locacao;
++    }
++
++    public Cliente buscar(String cpf){
++        for(Cliente cli: repositorioClientes.listar()){
++            if(this.cliente.getCpf().equals(cpf)){
++                return cliente;
++            }
++        }
++        return null;
++    }
++
+ }
+ 
+ 
+Index: src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.negocios;\r\n\r\nimport com.locadora_abvv.dados.IRepositorio;\r\nimport com.locadora_abvv.dados.Repositorio;\r\nimport com.locadora_abvv.exceptions.ElementoExisteException;\r\nimport com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;\r\nimport com.locadora_abvv.negocios.beans.Funcionario;\r\n\r\npublic class ControladorFuncionario {\r\n\r\n    private IRepositorio<Funcionario> repositorioFuncionarios;\r\n    private static ControladorFuncionario instance;\r\n\r\n    public ControladorFuncionario() {\r\n        this.repositorioFuncionarios = new Repositorio<>(\"funcionarios.dat\");\r\n    }\r\n\r\n    public static ControladorFuncionario getInstance(){\r\n        if (instance == null)\r\n            instance = new ControladorFuncionario();\r\n        return instance;\r\n    }\r\n\r\n    public void cadastrar(Funcionario f) throws ElementoExisteException {\r\n        if (f.getFuncao()==2)\r\n            if (f.calcularIdade() >= 18) {\r\n                this.repositorioFuncionarios.cadastrar(f);\r\n            }\r\n        else{\r\n            throw new IllegalArgumentException(\"ERRO: Funcionário não pode ter menos de 18 anos\");\r\n            }\r\n\r\n    }\r\n\r\n    public void listar(){\r\n        this.repositorioFuncionarios.listar();\r\n    }\r\n\r\n    public void remover(Funcionario f) throws ElementoNaoExisteExcepcion {\r\n        if (f.getFuncao()==2)\r\n            this.repositorioFuncionarios.remover(f);\r\n    }\r\n\r\n    public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion {\r\n        if (f.getFuncao()==2)\r\n            this.repositorioFuncionarios.atualizar(f);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java b/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java
+--- a/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java	(date 1653016369171)
+@@ -11,6 +11,8 @@
+     private IRepositorio<Funcionario> repositorioFuncionarios;
+     private static ControladorFuncionario instance;
+ 
++    private Funcionario funcionario;
++
+     public ControladorFuncionario() {
+         this.repositorioFuncionarios = new Repositorio<>("funcionarios.dat");
+     }
+@@ -22,12 +24,11 @@
+     }
+ 
+     public void cadastrar(Funcionario f) throws ElementoExisteException {
+-        if (f.getFuncao()==2)
+             if (f.calcularIdade() >= 18) {
+                 this.repositorioFuncionarios.cadastrar(f);
+             }
+         else{
+-            throw new IllegalArgumentException("ERRO: Funcionário não pode ter menos de 18 anos");
++            throw new ElementoExisteException(f);
+             }
+ 
+     }
+@@ -41,8 +42,25 @@
+             this.repositorioFuncionarios.remover(f);
+     }
+ 
++    public Funcionario getFuncionario() {
++        return funcionario;
++    }
++
++    public void setFuncionario(Funcionario funcionario) {
++        this.funcionario = funcionario;
++    }
++
+     public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion {
+         if (f.getFuncao()==2)
+             this.repositorioFuncionarios.atualizar(f);
+     }
++
++    public Funcionario buscar(String cpf){
++        for(Funcionario fun: repositorioFuncionarios.listar()){
++            if (this.funcionario.getCpf().equals(cpf)){
++                return funcionario;
++            }
++        }
++        return null;
++    }
+ }
+Index: src/main/java/com/locadora_abvv/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv;\r\n\r\nimport com.locadora_abvv.apresentacao.MainController;\r\nimport com.locadora_abvv.apresentacao.ScreenManager;\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class HelloApplication extends Application {\r\n    @Override\r\n    public void start(Stage stage) throws Exception {\r\n        stage.setScene(ScreenManager.getInstance().getMainScene());\r\n        stage.setTitle(\"LOCADORA ABVV\");\r\n        stage.setResizable(false);\r\n        stage.setWidth(600);\r\n        stage.setHeight(400);\r\n\r\n        ScreenManager.getInstance().setPrimaryStage(stage);\r\n\r\n        stage.show();\r\n\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/HelloApplication.java b/src/main/java/com/locadora_abvv/HelloApplication.java
+--- a/src/main/java/com/locadora_abvv/HelloApplication.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/HelloApplication.java	(date 1653015695038)
+@@ -1,14 +1,9 @@
+ package com.locadora_abvv;
+ 
+-import com.locadora_abvv.apresentacao.MainController;
+ import com.locadora_abvv.apresentacao.ScreenManager;
+ import javafx.application.Application;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+ import javafx.stage.Stage;
+ 
+-import java.io.IOException;
+-
+ public class HelloApplication extends Application {
+     @Override
+     public void start(Stage stage) throws Exception {
+@@ -18,7 +13,7 @@
+         stage.setWidth(600);
+         stage.setHeight(400);
+ 
+-        ScreenManager.getInstance().setPrimaryStage(stage);
++        ScreenManager.getInstance().setStage(stage);
+ 
+         stage.show();
+ 
+Index: src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.negocios.beans;\r\n\r\nimport java.time.LocalDate;\r\n\r\npublic class Funcionario extends Pessoa{\r\n\r\n    private double salario;\r\n    private int matricula;\r\n    enum Funcao {\r\n        ATENDENTE(1), ADMINISTRADOR(2);\r\n\r\n        private int valor;\r\n        Funcao (int valor){\r\n            this.valor=valor;\r\n        }\r\n    }\r\n\r\n    private static Funcao funcao;\r\n\r\n    public Funcionario(String nome, String cpf, String senha, String telefone, String email, String endereco, LocalDate dataNascimento, double salario, int matricula, Funcao funcao) {\r\n        super(nome, cpf, senha, telefone, email, endereco, dataNascimento);\r\n        this.salario = salario;\r\n        this.matricula = matricula;\r\n        this.funcao = funcao;\r\n    }\r\n\r\n    public static int getFuncao() {\r\n        return funcao.valor;\r\n    }\r\n\r\n    public void setFuncao(Funcao funcao) {\r\n        this.funcao = funcao;\r\n    }\r\n\r\n    public int getMatricula() {\r\n        return matricula;\r\n    }\r\n\r\n\r\n    public void setMatricula(int matricula) {\r\n        this.matricula = matricula;\r\n    }\r\n\r\n    public double getSalario() {\r\n        return salario;\r\n    }\r\n\r\n    public void setSalario(double salario) {\r\n        this.salario = salario;\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java b/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java
+--- a/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java	(date 1653016805236)
+@@ -24,7 +24,7 @@
+         this.funcao = funcao;
+     }
+ 
+-    public static int getFuncao() {
++    public int getFuncao() {
+         return funcao.valor;
+     }
+ 
+Index: src/main/java/com/locadora_abvv/apresentacao/MainController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.apresentacao;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\n\r\npublic class MainController {\r\n\r\n    @FXML\r\n    private Button entrarBtn;\r\n\r\n    @FXML\r\n    private PasswordField senha;\r\n\r\n    @FXML\r\n    private TextField user;\r\n\r\n    @FXML\r\n    void entrarBtnClicked(ActionEvent event) {\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/apresentacao/MainController.java b/src/main/java/com/locadora_abvv/apresentacao/MainController.java
+--- a/src/main/java/com/locadora_abvv/apresentacao/MainController.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/apresentacao/MainController.java	(date 1653017248422)
+@@ -1,13 +1,22 @@
+ package com.locadora_abvv.apresentacao;
+ 
++import com.locadora_abvv.negocios.ControladorCliente;
++import com.locadora_abvv.negocios.ControladorFuncionario;
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
++import javafx.scene.control.Alert;
+ import javafx.scene.control.Button;
+ import javafx.scene.control.PasswordField;
+ import javafx.scene.control.TextField;
++import javafx.stage.Stage;
++
++import java.io.IOException;
+ 
+ public class MainController {
+ 
++    ControladorCliente controladorCliente = new ControladorCliente();
++    ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
++    ScreenManager sc;
+     @FXML
+     private Button entrarBtn;
+ 
+@@ -17,9 +26,70 @@
+     @FXML
+     private TextField user;
+ 
++    public Button getEntrarBtn() {
++        return entrarBtn;
++    }
++
++    public void setEntrarBtn(Button entrarBtn) {
++        this.entrarBtn = entrarBtn;
++    }
++
++    public PasswordField getSenha() {
++        return senha;
++    }
++
++    public void setSenha(PasswordField senha) {
++        this.senha = senha;
++    }
++
++    public TextField getUser() {
++        return user;
++    }
++
++    public void setUser(TextField user) {
++        this.user = user;
++    }
++
+     @FXML
+-    void entrarBtnClicked(ActionEvent event) {
++    void entrarBtnClicked(ActionEvent event) throws IOException {
++        checkLogin();
++    }
++
++
++
++
++    private void checkLogin() throws IOException {
++        if (user.getText().isEmpty() || senha.getText().isEmpty()) {
++            Alert dialogoErro = new Alert(Alert.AlertType.WARNING);
++            dialogoErro.setHeaderText("ERRO");
++            dialogoErro.setContentText("O login ou senha está em branco");
++            dialogoErro.showAndWait();
++
++        } else if (controladorCliente.buscar(user.getText()) == null) {
++            Alert dialogoErro = new Alert(Alert.AlertType.WARNING);
++            dialogoErro.setHeaderText("ERRO");
++            dialogoErro.setContentText("O cliente não está cadastrado");
++            dialogoErro.showAndWait();
+ 
+-    }
++        } else if (controladorCliente.buscar(user.getText()).equals(controladorCliente.getCliente().getCpf()) && controladorCliente.buscar(senha.getText()).equals(controladorCliente.getCliente().getSenha())) {
++            Stage st = (Stage) getEntrarBtn().getScene().getWindow();
++            st.setScene(sc.getTelaCliente());
++
++        } else if (controladorFuncionario.buscar(user.getText()) == null) {
++            Alert dialogoErro = new Alert(Alert.AlertType.WARNING);
++            dialogoErro.setHeaderText("ERRO");
++            dialogoErro.setContentText("O funcionário não está cadastrado");
++            dialogoErro.showAndWait();
++
++        } else if (controladorFuncionario.buscar(user.getText()).equals(controladorFuncionario.getFuncionario().getCpf()) && controladorFuncionario.buscar(senha.getText()).equals(controladorFuncionario.getFuncionario().getSenha())) {
++            Stage st = (Stage) getEntrarBtn().getScene().getWindow();
++
++            if (controladorFuncionario.getFuncionario().getFuncao() == 1) {
++                st.setScene(sc.getTelaFuncionario());
++            } else if (controladorFuncionario.getFuncionario().getFuncao() == 2) {
++                st.setScene(sc.getTelaAdm());
++            }
+ 
+-}
++        }
++    }
++    }
+\ No newline at end of file
+Index: target/classes/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml b/target/classes/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,65 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.TextArea?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaAtualizacaoVeiculoController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualização de cadastro" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Text layoutX="15.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cor:" />
+-                        <Text layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacidade:" />
+-                        <Text layoutX="15.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:" />
+-                        <Text layoutX="15.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Placa:" />
+-                        <Text layoutX="15.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor da multa" />
+-                        <Text layoutX="15.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo" />
+-                        <Text layoutX="15.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fabricante" />
+-                        <TextField fx:id="corField" layoutX="100.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a cor do carro" />
+-                        <TextField fx:id="capacidadeField" layoutX="100.0" layoutY="53.0" prefHeight="25.0" prefWidth="320.0" promptText="Digite a capacidade do veículo" />
+-                        <TextField fx:id="placaField" layoutX="100.0" layoutY="130.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a placa do veículo" />
+-                        <TextField fx:id="valorMultaField" layoutX="100.0" layoutY="160.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o valor fixo da multa para este veículo" />
+-                        <TextField fx:id="modeloField" layoutX="100.0" layoutY="190.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o modelo" />
+-                        <Button layoutX="488.0" layoutY="263.0" mnemonicParsing="false" text="Enviar" />
+-                        <TextField fx:id="FabricanteField" layoutX="100.0" layoutY="220.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome do fabricante" />
+-                        <TextArea fx:id="descricaoField" layoutX="100.0" layoutY="84.0" prefHeight="37.0" prefWidth="320.0" promptText="Digite a descrição do veículo" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml b/target/classes/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,67 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.ColumnConstraints?>
+-<?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.RowConstraints?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaGerenciamentoVeiculoController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de veículo" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <GridPane layoutX="80.0" layoutY="88.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-                          <columnConstraints>
+-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                          </columnConstraints>
+-                          <rowConstraints>
+-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                          </rowConstraints>
+-                           <children>
+-                              <Button fx:id="addButton" mnemonicParsing="false" text="Adicionar" GridPane.halignment="CENTER" />
+-                              <Button fx:id="attButton" mnemonicParsing="false" text="Atualizar" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+-                              <Button fx:id="buscarBtn" mnemonicParsing="false" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+-                              <Button fx:id="removerBtn" mnemonicParsing="false" text="Remover" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+-                           </children>
+-                        </GridPane>
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml b/target/classes/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,71 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DatePicker?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaAtualizacaoFuncionarioController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualização de cadastro" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane fx:id="nascimentoDatePicker" prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Text layoutX="15.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+-                        <Text layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
+-                        <Text layoutX="15.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
+-                        <Text layoutX="15.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+-                        <Text layoutX="15.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+-                        <Text layoutX="15.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+-                        <Text layoutX="15.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de nascimento:" />
+-                        <Text layoutX="15.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário" />
+-                        <Text layoutX="15.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matrícula" />
+-                        <TextField fx:id="nomeField" layoutX="70.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome completo" />
+-                        <TextField fx:id="CPFField" layoutX="70.0" layoutY="53.0"  prefHeight="25.0" prefWidth="320.0" promptText="Digite apenas números do CPF" />
+-                        <TextField fx:id="senhaFIeld" layoutX="70.0" layoutY="83.0" prefHeight="25.0" prefWidth="320.0" promptText="Digite a senha" />
+-                        <TextField fx:id="telefoneField" layoutX="70.0" layoutY="113.0"  prefHeight="20.0" prefWidth="320.0" promptText="Digite DDD + número" />
+-                        <TextField fx:id="emailField" layoutX="70.0" layoutY="143.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o email" />
+-                        <TextField fx:id="enderecoField" layoutX="70.0" layoutY="173.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o endereço" />
+-                        <TextField fx:id="matriculaField" layoutX="70.0" layoutY="263.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o número da matrícula do funcionário" />
+-                        <DatePicker layoutX="131.0" layoutY="203.0" />
+-                        <Button layoutX="488.0" layoutY="263.0" mnemonicParsing="false" text="Enviar" />
+-                        <TextField fx:id="salarioFIeld" layoutX="70.0" layoutY="233.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o salário do funcionário" />
+-                        <Text layoutX="336.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:" />
+-                        <TextField fx:id="funcaoField" layoutX="380.0" layoutY="203.0" prefHeight="25.0" prefWidth="214.0" promptText="digite 1 para atendente, 2 para adm" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaRemoverVeiculo.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaRemoverVeiculo.fxml b/target/classes/com/locadora_abvv/TelaRemoverVeiculo.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaRemoverVeiculo.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,51 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaRemoverVeiculoController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Remover veículo" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" text="Ir" />
+-                        <TextField fx:id="removerPlacaTextField" layoutX="219.0" layoutY="127.0" prefHeight="25.0" prefWidth="166.0" promptText="Digite a placa do veículo" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaAluguelDeVeiculos.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaAluguelDeVeiculos.fxml b/target/classes/com/locadora_abvv/TelaAluguelDeVeiculos.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaAluguelDeVeiculos.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,59 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DatePicker?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaAluguelDeVeiculoController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aluguel de veículos" textAlignment="CENTER" wrappingWidth="549.3994140625">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children></HBox>
+-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+-                     <children>
+-                        <Label layoutX="123.0" layoutY="54.0" text="Data de retirada:">
+-                           <font>
+-                              <Font name="System Bold" size="14.0" />
+-                           </font>
+-                        </Label>
+-                        <Label layoutX="123.0" layoutY="81.0" text="Data de entrega:">
+-                           <font>
+-                              <Font name="System Bold" size="14.0" />
+-                           </font>
+-                        </Label>
+-                        <DatePicker fx:id="entregaDatePicker" layoutX="253.0" layoutY="79.0" promptText="DD/MM/AAAA" />
+-                        <DatePicker fx:id="retiradaDatePicker" layoutX="253.0" layoutY="52.0" promptText="DD/MM/AAAA" />
+-                        <Button fx:id="alugarBtn" layoutX="376.0" layoutY="115.0" mnemonicParsing="false" text="Alugar" />
+-                     </children></AnchorPane>
+-               </children></HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agradecemos a preferência" textAlignment="CENTER" wrappingWidth="600.708984375">
+-                     <font>
+-                        <Font size="22.0" />
+-                     </font>
+-                  </Text>
+-               </children></HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaVeiculos.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaVeiculos.fxml b/target/classes/com/locadora_abvv/TelaVeiculos.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaVeiculos.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,78 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<!--
+-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+-  All rights reserved. Use is subject to license terms.
+-
+-  This file is available and licensed under the following license:
+-
+-  Redistribution and use in source and binary forms, with or without
+-  modification, are permitted provided that the following conditions
+-  are met:
+-
+-  - Redistributions of source code must retain the above copyright
+-    notice, this list of conditions and the following disclaimer.
+-  - Redistributions in binary form must reproduce the above copyright
+-    notice, this list of conditions and the following disclaimer in
+-    the documentation and/or other materials provided with the distribution.
+-  - Neither the name of Oracle Corporation nor the names of its
+-    contributors may be used to endorse or promote products derived
+-    from this software without specific prior written permission.
+-
+-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+--->
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.SplitMenuButton?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.BorderPane?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-
+-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaVeiculosController">
+-   <bottom>
+-      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #483D8B;" BorderPane.alignment="CENTER" />
+-   </bottom>
+-   <top>
+-      <AnchorPane prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+-         <children>
+-            <Label layoutX="157.0" layoutY="2.0" style="-fx-alignment: #A9A9A9;" text="Locadora ABVV">
+-               <font>
+-                  <Font size="42.0" />
+-               </font>
+-            </Label>
+-            <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-               <font>
+-                  <Font size="10.0" />
+-               </font>
+-            </Button>
+-         </children>
+-      </AnchorPane>
+-   </top>
+-   <center>
+-      <AnchorPane prefHeight="331.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;" BorderPane.alignment="CENTER">
+-         <children>
+-            <VBox layoutX="8.0" layoutY="39.0" prefHeight="274.0" prefWidth="288.0">
+-               <children>
+-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+-                     <children>
+-                        <SplitMenuButton fx:id="veiculosDisponiveisBtn" layoutX="263.0" layoutY="100.0" mnemonicParsing="false" text="Veiculos" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </VBox>
+-         </children>
+-      </AnchorPane>
+-   </center>
+-</BorderPane>
+Index: target/classes/com/locadora_abvv/TelaAdm.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaAdm.fxml b/target/classes/com/locadora_abvv/TelaAdm.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaAdm.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,63 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.ColumnConstraints?>
+-<?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.RowConstraints?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo(a)" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <GridPane HBox.hgrow="ALWAYS">
+-                    <columnConstraints>
+-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                    </columnConstraints>
+-                    <rowConstraints>
+-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                    </rowConstraints>
+-                     <children>
+-                        <Button fx:id="gerenciarFuncionarioBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Gerenciar funcionário" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+-                        <Button fx:id="gerenciarVeiculoBtn" mnemonicParsing="false" text="Gerenciar veiculo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+-                        <Button fx:id="gerenciarClienteBtn" mnemonicParsing="false" text="Gerenciar cliente" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+-                        <Button fx:id="veiculosDisponiveisBtn" mnemonicParsing="false" text="Veiculos disponíveis" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+-                     </children>
+-                  </GridPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Você está logado(a) como administrador(a)" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaBuscarCliente.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaBuscarCliente.fxml b/target/classes/com/locadora_abvv/TelaBuscarCliente.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaBuscarCliente.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,53 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DialogPane?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaBuscarClienteController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar cliente" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane fx:id="mostrarClientePane" prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" text="Ir" />
+-                        <TextField fx:id="buscarCpcTextField" layoutX="226.0" layoutY="127.0" promptText="Digite o CPF do cliente" />
+-                        <DialogPane layoutX="109.0" layoutY="104.0" prefHeight="62.0" prefWidth="400.0" visible="false" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaGerenciamentoCliente.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaGerenciamentoCliente.fxml b/target/classes/com/locadora_abvv/TelaGerenciamentoCliente.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaGerenciamentoCliente.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,67 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.ColumnConstraints?>
+-<?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.RowConstraints?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaGerenciamentoClienteController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de cliente" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <GridPane layoutX="80.0" layoutY="88.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-                          <columnConstraints>
+-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                          </columnConstraints>
+-                          <rowConstraints>
+-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                          </rowConstraints>
+-                           <children>
+-                              <Button fx:id="addButton" mnemonicParsing="false" text="Adicionar" GridPane.halignment="CENTER" />
+-                              <Button fx:id="attButton" mnemonicParsing="false" text="Atualizar" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+-                              <Button fx:id="buscarBtn" mnemonicParsing="false" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+-                              <Button fx:id="removerBtn" mnemonicParsing="false" text="Remover" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+-                           </children>
+-                        </GridPane>
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaCadastroCliente.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaCadastroCliente.fxml b/target/classes/com/locadora_abvv/TelaCadastroCliente.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaCadastroCliente.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,69 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DatePicker?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaCadastroClienteController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de cliente" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Text layoutX="15.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+-                        <Text layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
+-                        <Text layoutX="15.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
+-                        <Text layoutX="15.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+-                        <Text layoutX="15.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+-                        <Text layoutX="15.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+-                        <Text layoutX="15.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de nascimento:" />
+-                        <Text layoutX="15.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de pagamento:" />
+-                        <Text layoutX="15.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CNH:" />
+-                        <TextField fx:id="nomeField" layoutX="70.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite nome completo" />
+-                        <TextField fx:id="cpfField" layoutX="70.0" layoutY="53.0"  prefHeight="25.0" prefWidth="320.0" promptText="Digite apenas números do CPF" />
+-                        <TextField fx:id="senhaField" layoutX="70.0" layoutY="83.0" prefHeight="25.0" prefWidth="320.0" promptText="Digite a senha" />
+-                        <TextField fx:id="telefoneField" layoutX="70.0" layoutY="113.0"  prefHeight="20.0" prefWidth="320.0" promptText="Digite DDD + número" />
+-                        <TextField fx:id="emailField" layoutX="70.0" layoutY="143.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o email" />
+-                        <TextField fx:id="enderecoField" layoutX="70.0" layoutY="173.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o endereço" />
+-                        <TextField fx:id="CNHFIeld" layoutX="70.0" layoutY="263.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o número da sua CNH" />
+-                        <DatePicker fx:id="nascimentoDatePicker" layoutX="131.0" layoutY="203.0" />
+-                        <Button fx:id="enviarBtn" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" text="Enviar" />
+-                        <TextField fx:id="pagamentoField" layoutX="137.0" layoutY="233.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a forma de pagamento" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/template.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/template.fxml b/target/classes/com/locadora_abvv/template.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/template.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,20 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;" />
+-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+-               </children></HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;" />
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaAtualizacaoCliente.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaAtualizacaoCliente.fxml b/target/classes/com/locadora_abvv/TelaAtualizacaoCliente.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaAtualizacaoCliente.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,69 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DatePicker?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<?import javafx.scene.control.TextField?>
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaAtualizacaoClienteController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualização de cadastro" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Text layoutX="15.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+-                        <Text layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
+-                        <Text layoutX="15.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
+-                        <Text layoutX="15.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+-                        <Text layoutX="15.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+-                        <Text layoutX="15.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+-                        <Text layoutX="15.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de nascimento:" />
+-                        <Text layoutX="15.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de pagamento:" />
+-                        <Text layoutX="15.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CNH:" />
+-                        <TextField fx:id="nomeField" layoutX="70.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome completo" />
+-                        <TextField fx:id="CPFField" layoutX="70.0" layoutY="53.0"  prefHeight="25.0" prefWidth="320.0" promptText="Digite apenas números do CPF" />
+-                        <TextField fx:id="senhaField" layoutX="70.0" layoutY="83.0" prefHeight="25.0" prefWidth="320.0" promptText="Digite a senha" />
+-                        <TextField fx:id="telefoneField" layoutX="70.0" layoutY="113.0"  prefHeight="20.0" prefWidth="320.0" promptText="Digite DDD + número" />
+-                        <TextField fx:id="emailField" layoutX="70.0" layoutY="143.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o email" />
+-                        <TextField fx:id="enderecoField" layoutX="70.0" layoutY="173.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o endereço" />
+-                        <TextField fx:id="CNHField" layoutX="70.0" layoutY="263.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o número da CNH do cliente" />
+-                        <DatePicker fx:id="nascimentoDatePicker" layoutX="131.0" layoutY="203.0" />
+-                        <Button fx:id="enviarField" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" text="Enviar" />
+-                        <TextField fx:id="pagamentoField" layoutX="137.0" layoutY="233.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a forma de pagamento" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/Telafuncionario.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/Telafuncionario.fxml b/target/classes/com/locadora_abvv/Telafuncionario.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/Telafuncionario.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,62 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.ColumnConstraints?>
+-<?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.RowConstraints?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaFuncionarioController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo(a)" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <GridPane HBox.hgrow="ALWAYS">
+-                    <columnConstraints>
+-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                    </columnConstraints>
+-                    <rowConstraints>
+-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                    </rowConstraints>
+-                     <children>
+-                        <Button fx:id="gerenciarVeiculoBtn" mnemonicParsing="false" text="Gerenciar veiculo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+-                        <Button fx:id="gerenciarClienteBtn" mnemonicParsing="false" text="Gerenciar cliente" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+-                        <Button fx:id="veiculosDIsponiveisBtn" mnemonicParsing="false" text="Veiculos disponíveis" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+-                     </children>
+-                  </GridPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Você está logado(a) como funcionário(a)" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaBuscarFuncionario.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaBuscarFuncionario.fxml b/target/classes/com/locadora_abvv/TelaBuscarFuncionario.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaBuscarFuncionario.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,53 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DialogPane?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaBuscarFuncionarioController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar funcionário" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane fx:id="mostrarFuncionarioPane" prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" text="Ir" />
+-                        <TextField fx:id="removerCpcTextField" layoutX="226.0" layoutY="127.0" prefHeight="25.0" prefWidth="166.0" promptText="Digite o CPF do funcionário" />
+-                        <DialogPane layoutX="109.0" layoutY="104.0" prefHeight="62.0" prefWidth="400.0" visible="false" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaCliente.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaCliente.fxml b/target/classes/com/locadora_abvv/TelaCliente.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaCliente.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,37 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.BorderPane?>
+-<?import javafx.scene.text.Font?>
+-
+-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+-   <bottom>
+-      <AnchorPane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #483D8B;" BorderPane.alignment="CENTER" />
+-   </bottom>
+-   <center>
+-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" BorderPane.alignment="CENTER">
+-         <children>
+-            <Button fx:id="veiculosDisponiveisBtn" layoutX="217.0" layoutY="109.0" mnemonicParsing="false" text="Veículos dísponíveis" />
+-            <Button fx:id="historicoBtn" layoutX="200.0" layoutY="169.0" mnemonicParsing="false" text="Histórico de veículos alugados" />
+-         </children>
+-      </AnchorPane>
+-   </center>
+-   <top>
+-      <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #A9A9A9;" BorderPane.alignment="CENTER">
+-         <children>
+-            <Label layoutX="166.0" layoutY="5.0" text="Espaço Cliente" textAlignment="CENTER">
+-               <font>
+-                  <Font size="42.0" />
+-               </font>
+-            </Label>
+-            <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-               <font>
+-                  <Font size="10.0" />
+-               </font>
+-            </Button>
+-         </children>
+-      </AnchorPane>
+-   </top>
+-</BorderPane>
+Index: target/classes/com/locadora_abvv/TelaRemoverCliente.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaRemoverCliente.fxml b/target/classes/com/locadora_abvv/TelaRemoverCliente.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaRemoverCliente.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,51 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaRemoverClienteController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Remover cliente" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" text="Ir" />
+-                        <TextField fx:id="removerCpcTextField" layoutX="226.0" layoutY="127.0" promptText="Digite o CPF do cliente" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/Main.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/Main.fxml b/target/classes/com/locadora_abvv/Main.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/Main.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,50 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.geometry.*?>
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.text.*?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.MainController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Locadora ABVV" textAlignment="CENTER" wrappingWidth="601.515625">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <GridPane>
+-                    <columnConstraints>
+-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                    </columnConstraints>
+-                    <rowConstraints>
+-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                    </rowConstraints>
+-                     <children>
+-                        <TextField fx:id="user" promptText="Usuario" GridPane.columnSpan="3" />
+-                        <PasswordField fx:id="senha" promptText="Senha" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+-                        <Button fx:id="entrarBtn" mnemonicParsing="false" text="Entrar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BASELINE">
+-                           <GridPane.margin>
+-                              <Insets />
+-                           </GridPane.margin>
+-                        </Button>
+-                     </children>
+-                  </GridPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;" />
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaBuscarVeiculo.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaBuscarVeiculo.fxml b/target/classes/com/locadora_abvv/TelaBuscarVeiculo.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaBuscarVeiculo.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,53 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DialogPane?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaBuscarVeiculoController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar veículo" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane fx:id="mostrarClientePane" prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" text="Ir" />
+-                        <TextField fx:id="buscarVeiculoTextFiield" layoutX="226.0" layoutY="127.0" promptText="Digite a placa do veículo" />
+-                        <DialogPane layoutX="109.0" layoutY="104.0" prefHeight="62.0" prefWidth="400.0" visible="false" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml b/target/classes/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,67 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.ColumnConstraints?>
+-<?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.RowConstraints?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaGerenciamentoFuncionarioController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de funcionário" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="38.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <GridPane layoutX="80.0" layoutY="88.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-                          <columnConstraints>
+-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-                          </columnConstraints>
+-                          <rowConstraints>
+-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-                          </rowConstraints>
+-                           <children>
+-                              <Button fx:id="addButton" mnemonicParsing="false" text="Adicionar" GridPane.halignment="CENTER" />
+-                              <Button fx:id="attButton" mnemonicParsing="false" text="Atualizar" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+-                              <Button fx:id="buscarBtn" mnemonicParsing="false" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+-                              <Button fx:id="removerBtn" mnemonicParsing="false" text="Remover" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+-                           </children>
+-                        </GridPane>
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaCadastroFuncionario.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaCadastroFuncionario.fxml b/target/classes/com/locadora_abvv/TelaCadastroFuncionario.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaCadastroFuncionario.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,71 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.DatePicker?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaCadastroFuncionarioController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de funcionário" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Text layoutX="15.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+-                        <Text layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
+-                        <Text layoutX="15.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
+-                        <Text layoutX="15.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+-                        <Text layoutX="15.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+-                        <Text layoutX="15.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+-                        <Text layoutX="15.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de nascimento:" />
+-                        <Text layoutX="15.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário" />
+-                        <Text layoutX="15.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matrícula" />
+-                        <TextField fx:id="nomeField" layoutX="70.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome completo" />
+-                        <TextField fx:id="CPFField" layoutX="70.0" layoutY="53.0"  prefHeight="25.0" prefWidth="320.0" promptText="Digite apenas números do CPF" />
+-                        <TextField fx:id="senhaFIeld" layoutX="70.0" layoutY="83.0" prefHeight="25.0" prefWidth="320.0" promptText="Digite a senha" />
+-                        <TextField fx:id="telefoneField" layoutX="70.0" layoutY="113.0"  prefHeight="20.0" prefWidth="320.0" promptText="Digite DDD + número" />
+-                        <TextField fx:id="emailField" layoutX="70.0" layoutY="143.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o email" />
+-                        <TextField fx:id="EnderecoField" layoutX="70.0" layoutY="173.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o endereço" />
+-                        <TextField fx:id="matriculaField" layoutX="70.0" layoutY="263.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o número da matrícula do funcionário" />
+-                        <DatePicker fx:id="nascimentoDatePicker" layoutX="131.0" layoutY="203.0" />
+-                        <Button layoutX="488.0" layoutY="263.0" mnemonicParsing="false" text="Enviar" />
+-                        <TextField fx:id="salarioField" layoutX="70.0" layoutY="233.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o salário do funcionário" />
+-                        <Text layoutX="336.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:" />
+-                        <TextField fx:id="funcaoField" layoutX="380.0" layoutY="203.0" prefHeight="25.0" prefWidth="214.0" promptText="digite 1 para atendente, 2 para adm" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaCadastroVeiculo.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaCadastroVeiculo.fxml b/target/classes/com/locadora_abvv/TelaCadastroVeiculo.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaCadastroVeiculo.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,65 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.TextArea?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaCadastroVeiculoController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de veículo" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Text layoutX="15.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cor:" />
+-                        <Text layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacidade:" />
+-                        <Text layoutX="15.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:" />
+-                        <Text layoutX="15.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Placa:" />
+-                        <Text layoutX="15.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor da multa" />
+-                        <Text layoutX="15.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo" />
+-                        <Text layoutX="15.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fabricante" />
+-                        <TextField fx:id="corFIeld" layoutX="100.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a cor do carro" />
+-                        <TextField fx:id="capacidadeField" layoutX="100.0" layoutY="53.0" prefHeight="25.0" prefWidth="320.0" promptText="Digite a capacidade do veículo" />
+-                        <TextField fx:id="placaField" layoutX="100.0" layoutY="130.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a placa do veículo" />
+-                        <TextField fx:id="valorMultaFIeld" layoutX="100.0" layoutY="160.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o valor fixo da multa para este veículo" />
+-                        <TextField fx:id="modeloFIeld" layoutX="100.0" layoutY="190.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o modelo" />
+-                        <Button fx:id="enviarBtn" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" text="Enviar" />
+-                        <TextField fx:id="fabricanteField" layoutX="100.0" layoutY="220.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome do fabricante" />
+-                        <TextArea fx:id="descricaoField" layoutX="100.0" layoutY="84.0" prefHeight="37.0" prefWidth="320.0" promptText="Digite a descrição do veículo" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: target/classes/com/locadora_abvv/TelaRemoverFuncionario.fxml
+===================================================================
+diff --git a/target/classes/com/locadora_abvv/TelaRemoverFuncionario.fxml b/target/classes/com/locadora_abvv/TelaRemoverFuncionario.fxml
+deleted file mode 100644
+--- a/target/classes/com/locadora_abvv/TelaRemoverFuncionario.fxml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ /dev/null	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
+@@ -1,51 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaRemoverFuncionarioController">
+-   <children>
+-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <children>
+-            <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
+-               <children>
+-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+-                     <font>
+-                        <Font size="10.0" />
+-                     </font>
+-                  </Button>
+-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Remover funcionário" textAlignment="CENTER" wrappingWidth="546.3203125">
+-                     <font>
+-                        <Font size="42.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
+-               <children>
+-                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
+-                     <children>
+-                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" text="Ir" />
+-                        <TextField fx:id="removerCpcTextField" layoutX="219.0" layoutY="127.0" prefHeight="25.0" prefWidth="166.0" promptText="Digite o CPF do funcionário" />
+-                     </children>
+-                  </AnchorPane>
+-               </children>
+-            </HBox>
+-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #483D8B;">
+-               <children>
+-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.650390625">
+-                     <font>
+-                        <Font size="17.0" />
+-                     </font>
+-                  </Text>
+-               </children>
+-            </HBox>
+-         </children>
+-      </VBox>
+-   </children>
+-</AnchorPane>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"05819719-cf3c-4c7c-8029-d10852d324e0\" name=\"Changes\" comment=\"telas\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_05_2022_12_36__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_05_2022_12_36__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"JavaFXApplication\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"284RBw56QSHsuG388XsVFBIfgxX\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/vinic/Documents/Locadora_ABVV/pom.xml&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"com.example.locadora_abvv.negocios.beans\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\vinic\\Documents\\Locadora_ABVV\\src\\main\\resources\\com\\locadora_abvv\" />\r\n      <recent name=\"C:\\Users\\vinic\\Documents\\Locadora_ABVV\\src\\main\\java\\com\\example\" />\r\n      <recent name=\"C:\\Users\\vinic\\Documents\\Locadora_ABVV\\Resources\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.example.locadora_abvv\" />\r\n      <recent name=\"\" />\r\n      <recent name=\"com\" />\r\n      <recent name=\"com.example\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.HelloApplication\">\r\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.locadora_abvv.HelloApplication\" />\r\n      <module name=\"Locadora_ABVV\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"All in Locadora_ABVV\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Locadora_ABVV\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"TEST_OBJECT\" value=\"package\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.HelloApplication\" />\r\n      <item itemvalue=\"JUnit.All in Locadora_ABVV\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.All in Locadora_ABVV\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"05819719-cf3c-4c7c-8029-d10852d324e0\" name=\"Changes\" comment=\"\" />\r\n      <created>1650473758607</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1650473758607</updated>\r\n      <workItem from=\"1650473765888\" duration=\"393000\" />\r\n      <workItem from=\"1650490710788\" duration=\"596000\" />\r\n      <workItem from=\"1650556613010\" duration=\"200000\" />\r\n      <workItem from=\"1650556824648\" duration=\"128000\" />\r\n      <workItem from=\"1650640052340\" duration=\"367000\" />\r\n      <workItem from=\"1650640470101\" duration=\"506000\" />\r\n      <workItem from=\"1650641006443\" duration=\"1833000\" />\r\n      <workItem from=\"1650667861051\" duration=\"4762000\" />\r\n      <workItem from=\"1650672884908\" duration=\"301000\" />\r\n      <workItem from=\"1650673201617\" duration=\"511000\" />\r\n      <workItem from=\"1650673745260\" duration=\"227000\" />\r\n      <workItem from=\"1650673990645\" duration=\"222000\" />\r\n      <workItem from=\"1650849360148\" duration=\"5691000\" />\r\n      <workItem from=\"1651344293359\" duration=\"43000\" />\r\n      <workItem from=\"1651505142964\" duration=\"5301000\" />\r\n      <workItem from=\"1651513180362\" duration=\"9000\" />\r\n      <workItem from=\"1651598190151\" duration=\"296000\" />\r\n      <workItem from=\"1651675812560\" duration=\"143000\" />\r\n      <workItem from=\"1651683726593\" duration=\"89000\" />\r\n      <workItem from=\"1651686079762\" duration=\"1319000\" />\r\n      <workItem from=\"1651892571810\" duration=\"2867000\" />\r\n      <workItem from=\"1651929173560\" duration=\"6410000\" />\r\n      <workItem from=\"1651988115929\" duration=\"1045000\" />\r\n      <workItem from=\"1652053280596\" duration=\"1478000\" />\r\n      <workItem from=\"1652055821710\" duration=\"805000\" />\r\n      <workItem from=\"1652056724246\" duration=\"115000\" />\r\n      <workItem from=\"1652056986455\" duration=\"467000\" />\r\n      <workItem from=\"1652057638348\" duration=\"127000\" />\r\n      <workItem from=\"1652066147574\" duration=\"374000\" />\r\n      <workItem from=\"1652747257618\" duration=\"3157000\" />\r\n      <workItem from=\"1652818823199\" duration=\"1015000\" />\r\n      <workItem from=\"1652820155163\" duration=\"7273000\" />\r\n      <workItem from=\"1652930577612\" duration=\"904000\" />\r\n      <workItem from=\"1652974879952\" duration=\"27000\" />\r\n      <workItem from=\"1652974930935\" duration=\"97000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Exceção cliente\">\r\n      <created>1652053939517</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652053939517</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"tela aluguel, cliente e veiculo\">\r\n      <created>1652054060118</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652054060118</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"controladores e atualização\">\r\n      <created>1652065376394</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652065376394</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"RN funcionário\">\r\n      <created>1652730656805</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652730656805</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"ScreenManager\">\r\n      <created>1652842700059</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652842700059</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"atualização controllers + fxml\">\r\n      <created>1652974820209</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652974820209</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Exceção cliente\" />\r\n    <MESSAGE value=\"tela aluguel, cliente e veiculo\" />\r\n    <MESSAGE value=\"controladores e atualização\" />\r\n    <MESSAGE value=\"RN funcionário\" />\r\n    <MESSAGE value=\"ScreenManager\" />\r\n    <MESSAGE value=\"atualização controllers + fxml\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"atualização controllers + fxml\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/.idea/workspace.xml	(date 1653017166772)
+@@ -4,10 +4,62 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="telas">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_05_2022_12_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_05_2022_12_36__Changes_.xml" afterDir="false" />
++    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="atualização controllers + fxml">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/HelloApplication.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/MainController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/ScreenManager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/dados/Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/dados/Repositorio.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorCliente.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorFuncionario.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorVeiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/ControladorVeiculo.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/Main.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAdm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAdm.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAluguelDeVeiculos.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAtualizacaoCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoCliente.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaBuscarCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarCliente.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaBuscarFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarFuncionario.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaBuscarVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarVeiculo.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCadastroCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroCliente.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCadastroFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroFuncionario.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCadastroVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCliente.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaGerenciamentoCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoCliente.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoFuncionario.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoVeiculo.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaRemoverCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverCliente.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaRemoverFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverFuncionario.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaRemoverVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverVeiculo.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/TelaVeiculos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaVeiculos.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/Telafuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/Telafuncionario.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/template.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/template.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/Main.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaAdm.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaAluguelDeVeiculos.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaAtualizacaoCliente.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaBuscarCliente.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaBuscarFuncionario.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaBuscarVeiculo.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaCadastroCliente.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaCadastroFuncionario.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaCadastroVeiculo.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaCliente.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaGerenciamentoCliente.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaRemoverCliente.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaRemoverFuncionario.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaRemoverVeiculo.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/TelaVeiculos.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/Telafuncionario.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/locadora_abvv/template.fxml" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -58,7 +110,7 @@
+     &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+   }
+ }</component>
+   <component name="RecentsManager">
+@@ -66,6 +118,7 @@
+       <recent name="com.example.locadora_abvv.negocios.beans" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\vinic\Documents\Locadora_ABVV\src\main\resources\com\locadora_abvv\apresentacao" />
+       <recent name="C:\Users\vinic\Documents\Locadora_ABVV\src\main\resources\com\locadora_abvv" />
+       <recent name="C:\Users\vinic\Documents\Locadora_ABVV\src\main\java\com\example" />
+       <recent name="C:\Users\vinic\Documents\Locadora_ABVV\Resources" />
+@@ -77,7 +130,7 @@
+       <recent name="com.example" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.HelloApplication">
++  <component name="RunManager" selected="Application.com.locadora_abvv.HelloApplication">
+     <configuration name="HelloApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.example.locadora_abvv.HelloApplication" />
+       <module name="Locadora_ABVV" />
+@@ -85,6 +138,19 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="com.locadora_abvv.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.locadora_abvv.HelloApplication" />
++      <module name="Locadora_ABVV" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.locadora_abvv.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="All in Locadora_ABVV" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="Locadora_ABVV" />
+       <option name="PACKAGE_NAME" value="" />
+@@ -95,10 +161,12 @@
+     </configuration>
+     <list>
+       <item itemvalue="Application.HelloApplication" />
++      <item itemvalue="Application.com.locadora_abvv.HelloApplication" />
+       <item itemvalue="JUnit.All in Locadora_ABVV" />
+     </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.com.locadora_abvv.HelloApplication" />
+         <item itemvalue="JUnit.All in Locadora_ABVV" />
+       </list>
+     </recent_temporary>
+@@ -146,6 +214,9 @@
+       <workItem from="1652930577612" duration="904000" />
+       <workItem from="1652974879952" duration="27000" />
+       <workItem from="1652974930935" duration="97000" />
++      <workItem from="1652986764295" duration="1210000" />
++      <workItem from="1653003880765" duration="6079000" />
++      <workItem from="1653016493458" duration="666000" />
+     </task>
+     <task id="LOCAL-00001" summary="Exceção cliente">
+       <created>1652053939517</created>
+Index: src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.negocios;\r\n\r\nimport com.locadora_abvv.dados.IRepositorio;\r\nimport com.locadora_abvv.dados.Repositorio;\r\nimport com.locadora_abvv.exceptions.ElementoExisteException;\r\nimport com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;\r\nimport com.locadora_abvv.negocios.beans.Locacao;\r\nimport com.locadora_abvv.negocios.beans.Cliente;\r\n\r\npublic class ControladorLocacao {\r\n\r\n    private IRepositorio<Locacao> repositorioLocacoes;\r\n    private static ControladorLocacao instance;\r\n\r\n    public ControladorLocacao() {\r\n        this.repositorioLocacoes = new Repositorio<>(\"locacoes.dat\");\r\n    }\r\n\r\n    public static ControladorLocacao getInstance(){\r\n        if (instance == null)\r\n            instance = new ControladorLocacao();\r\n        return instance;\r\n    }\r\n\r\n    public void cadastrar(Locacao l) throws ElementoExisteException {\r\n\r\n        boolean ok = true;\r\n        for(Locacao loc : this.repositorioLocacoes.listar()){\r\n            if(loc.getCliente() == l.getCliente()){\r\n                if(loc.getAtivo() == true){\r\n                    ok = false;\r\n                }\r\n                break;\r\n            }\r\n        }\r\n\r\n        if(ok) {\r\n            this.repositorioLocacoes.cadastrar(l);\r\n        }\r\n        else{\r\n            throw new IllegalArgumentException(\"ERRO: Cliente já possui uma locação ativa\");\r\n        }\r\n    }\r\n\r\n    public void listar(){\r\n        this.repositorioLocacoes.listar();\r\n    }\r\n\r\n\r\n    public void atualizar(Locacao l) throws ElementoNaoExisteExcepcion {\r\n        this.repositorioLocacoes.atualizar(l);\r\n    }\r\n\r\n    public void finalizarLocacao(Locacao l){\r\n        l.calcularValorTotal(l.getVeiculo());\r\n        l.setAtivo(false);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java b/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java
+--- a/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/negocios/ControladorLocacao.java	(date 1653014354968)
+@@ -38,7 +38,7 @@
+             this.repositorioLocacoes.cadastrar(l);
+         }
+         else{
+-            throw new IllegalArgumentException("ERRO: Cliente já possui uma locação ativa");
++            throw new ElementoExisteException(l);
+         }
+     }
+ 
+Index: src/main/java/com/locadora_abvv/negocios/ControladorVeiculo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.negocios;\r\n\r\nimport com.locadora_abvv.dados.IRepositorio;\r\nimport com.locadora_abvv.dados.Repositorio;\r\nimport com.locadora_abvv.exceptions.ElementoExisteException;\r\nimport com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;\r\nimport com.locadora_abvv.negocios.beans.Veiculo;\r\n\r\nimport java.time.LocalDate;\r\n\r\npublic class ControladorVeiculo {\r\n\r\n    private IRepositorio<Veiculo> repositorioVeiculos;\r\n\r\n    private static ControladorVeiculo instance;\r\n\r\n    public ControladorVeiculo() {\r\n        this.repositorioVeiculos = new Repositorio<>(\"veiculos.dat\");\r\n    }\r\n\r\n    public static ControladorVeiculo getInstance(){\r\n        if (instance == null)\r\n            instance = new ControladorVeiculo();\r\n        return instance;\r\n    }\r\n\r\n    public void cadastrar(Veiculo v) throws ElementoExisteException {\r\n        LocalDate dataAtual = LocalDate.now();\r\n        if(v.getModelo().getAno() < dataAtual.getYear() + 2) {\r\n            this.repositorioVeiculos.cadastrar(v);\r\n        }\r\n        else{\r\n            throw new IllegalArgumentException(\"ERRO: Modelo não pode ser 2 anos ou mais a frente do ano vigente\");\r\n        }\r\n    }\r\n\r\n\r\n    public void listar(){\r\n        this.repositorioVeiculos.listar();\r\n    }\r\n\r\n    public void remover(Veiculo v) throws ElementoNaoExisteExcepcion {\r\n        this.repositorioVeiculos.remover(v);\r\n    }\r\n\r\n    public void atualizar(Veiculo v) throws ElementoNaoExisteExcepcion {\r\n        this.repositorioVeiculos.atualizar(v);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/negocios/ControladorVeiculo.java b/src/main/java/com/locadora_abvv/negocios/ControladorVeiculo.java
+--- a/src/main/java/com/locadora_abvv/negocios/ControladorVeiculo.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/negocios/ControladorVeiculo.java	(date 1653014354957)
+@@ -30,7 +30,7 @@
+             this.repositorioVeiculos.cadastrar(v);
+         }
+         else{
+-            throw new IllegalArgumentException("ERRO: Modelo não pode ser 2 anos ou mais a frente do ano vigente");
++            throw new ElementoExisteException(v);
+         }
+     }
+ 
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>    module com.example.locadora_abvv {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n        exports com.locadora_abvv;\r\n        opens com.locadora_abvv to javafx.fxml;\r\n    }
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/module-info.java	(date 1653004076806)
+@@ -3,5 +3,7 @@
+     requires javafx.fxml;
+ 
+         exports com.locadora_abvv;
++        exports com.locadora_abvv.apresentacao;
+         opens com.locadora_abvv to javafx.fxml;
++        opens com.locadora_abvv.apresentacao to javafx.fxml;
+     }
+\ No newline at end of file
+Index: src/main/java/com/locadora_abvv/dados/Repositorio.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.locadora_abvv.dados;\r\n\r\nimport com.locadora_abvv.exceptions.ElementoExisteException;\r\nimport com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\nimport java.util.List;\r\n\r\npublic class Repositorio<T> implements IRepositorio<T>{\r\n\r\n    protected List<T> elementos;\r\n    private String nomeArquivo;\r\n\r\n\r\n    public Repositorio(String nomeArquivo) {\r\n        this.nomeArquivo = nomeArquivo;\r\n        this.elementos = new ArrayList<>();\r\n\r\n        Object listaElementos = RepoFiles.lerDoArquivo(this.nomeArquivo);\r\n        if (listaElementos != null && listaElementos instanceof List<?>){\r\n            this.elementos = (List<T>) listaElementos;\r\n        }\r\n\r\n    }\r\n\r\n    @Override\r\n    public void cadastrar(T obj) throws ElementoExisteException {\r\n        if (!this.elementos.contains(obj)) {\r\n            this.elementos.add(obj);\r\n        } else {\r\n            throw new ElementoExisteException(obj);\r\n        }\r\n\r\n        RepoFiles.salvarArquivo(elementos, this.nomeArquivo);\r\n\r\n    }\r\n\r\n    @Override\r\n    public List listar() {\r\n        return Collections.unmodifiableList(this.elementos);\r\n    }\r\n\r\n    @Override\r\n    public void remover(T obj) throws ElementoNaoExisteExcepcion {\r\n        if (this.elementos.contains(obj)) {\r\n            this.elementos.remove(this.elementos.indexOf(obj));\r\n        } else {\r\n            throw new ElementoNaoExisteExcepcion(obj);\r\n        }\r\n\r\n        RepoFiles.salvarArquivo(elementos, this.nomeArquivo);\r\n\r\n    }\r\n\r\n    @Override\r\n    public void atualizar(T novoObj) throws ElementoNaoExisteExcepcion {\r\n        if (this.elementos.contains(novoObj)) {\r\n            int indice = this.elementos.indexOf(novoObj);\r\n            this.elementos.set(indice, novoObj);\r\n        } else {\r\n            throw new ElementoNaoExisteExcepcion(novoObj);\r\n        }\r\n\r\n        RepoFiles.salvarArquivo(elementos, this.nomeArquivo);\r\n    }\r\n\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/locadora_abvv/dados/Repositorio.java b/src/main/java/com/locadora_abvv/dados/Repositorio.java
+--- a/src/main/java/com/locadora_abvv/dados/Repositorio.java	(revision 470c6a41360f0f84dc6235884e637b13686080dc)
++++ b/src/main/java/com/locadora_abvv/dados/Repositorio.java	(date 1653014354963)
+@@ -65,6 +65,5 @@
+         RepoFiles.salvarArquivo(elementos, this.nomeArquivo);
+     }
+ 
+-
+ }
+ 
+diff --git a/src/main/resources/com/locadora_abvv/TelaBuscarVeiculo.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarVeiculo.fxml
+rename from src/main/resources/com/locadora_abvv/TelaBuscarVeiculo.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarVeiculo.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaRemoverCliente.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverCliente.fxml
+rename from src/main/resources/com/locadora_abvv/TelaRemoverCliente.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverCliente.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaRemoverVeiculo.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverVeiculo.fxml
+rename from src/main/resources/com/locadora_abvv/TelaRemoverVeiculo.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverVeiculo.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaGerenciamentoCliente.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoCliente.fxml
+rename from src/main/resources/com/locadora_abvv/TelaGerenciamentoCliente.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoCliente.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaAdm.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaAdm.fxml
+rename from src/main/resources/com/locadora_abvv/TelaAdm.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaAdm.fxml
+diff --git a/src/main/resources/com/locadora_abvv/Telafuncionario.fxml b/src/main/resources/com/locadora_abvv/apresentacao/Telafuncionario.fxml
+rename from src/main/resources/com/locadora_abvv/Telafuncionario.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/Telafuncionario.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaCadastroCliente.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroCliente.fxml
+rename from src/main/resources/com/locadora_abvv/TelaCadastroCliente.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroCliente.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaCadastroFuncionario.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroFuncionario.fxml
+rename from src/main/resources/com/locadora_abvv/TelaCadastroFuncionario.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroFuncionario.fxml
+diff --git a/src/main/resources/com/locadora_abvv/template.fxml b/src/main/resources/com/locadora_abvv/apresentacao/template.fxml
+rename from src/main/resources/com/locadora_abvv/template.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/template.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaVeiculos.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaVeiculos.fxml
+rename from src/main/resources/com/locadora_abvv/TelaVeiculos.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaVeiculos.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaBuscarFuncionario.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarFuncionario.fxml
+rename from src/main/resources/com/locadora_abvv/TelaBuscarFuncionario.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarFuncionario.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoVeiculo.fxml
+rename from src/main/resources/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoVeiculo.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaRemoverFuncionario.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverFuncionario.fxml
+rename from src/main/resources/com/locadora_abvv/TelaRemoverFuncionario.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaRemoverFuncionario.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaCliente.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaCliente.fxml
+rename from src/main/resources/com/locadora_abvv/TelaCliente.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaCliente.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaAluguelDeVeiculos.fxml
+rename from src/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaAluguelDeVeiculos.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoFuncionario.fxml
+rename from src/main/resources/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaGerenciamentoFuncionario.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaCadastroVeiculo.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml
+rename from src/main/resources/com/locadora_abvv/TelaCadastroVeiculo.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml
+diff --git a/src/main/resources/com/locadora_abvv/Main.fxml b/src/main/resources/com/locadora_abvv/apresentacao/Main.fxml
+rename from src/main/resources/com/locadora_abvv/Main.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/Main.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml
+rename from src/main/resources/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaAtualizacaoCliente.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoCliente.fxml
+rename from src/main/resources/com/locadora_abvv/TelaAtualizacaoCliente.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoCliente.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml
+rename from src/main/resources/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml
+diff --git a/src/main/resources/com/locadora_abvv/TelaBuscarCliente.fxml b/src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarCliente.fxml
+rename from src/main/resources/com/locadora_abvv/TelaBuscarCliente.fxml
+rename to src/main/resources/com/locadora_abvv/apresentacao/TelaBuscarCliente.fxml

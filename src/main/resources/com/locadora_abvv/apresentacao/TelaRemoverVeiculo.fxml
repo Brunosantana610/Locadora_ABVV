@@ -14,7 +14,7 @@
          <children>
             <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
                <children>
-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" onAction="#voltarBtnClicked" prefHeight="31.0" prefWidth="51.0" text="Voltar">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -30,7 +30,7 @@
                <children>
                   <AnchorPane prefHeight="303.0" prefWidth="602.0">
                      <children>
-                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" text="Ir" />
+                        <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" onAction="#irBtnClicked" text="Ir" />
                         <TextField fx:id="removerPlacaTextField" layoutX="219.0" layoutY="127.0" prefHeight="25.0" prefWidth="166.0" promptText="Digite a placa do veículo" />
                      </children>
                   </AnchorPane>

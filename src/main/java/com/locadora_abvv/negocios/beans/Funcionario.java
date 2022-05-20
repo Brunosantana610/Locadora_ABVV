@@ -24,7 +24,7 @@ public class Funcionario extends Pessoa{
         this.funcao = funcao;
     }
 
-    public static int getFuncao() {
+    public int getFuncao() {
         return funcao.valor;
     }
 

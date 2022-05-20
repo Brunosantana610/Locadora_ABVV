@@ -21,7 +21,7 @@ public class ScreenManager {
     }
 
 
-    private Stage primaryStage;
+    private Stage stage;
     private Scene mainScene;
     private MainController mainController;
 
@@ -31,8 +31,8 @@ public class ScreenManager {
         ScreenManager.instance = instance;
     }
 
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
     private TelaAdmController telaAdmController;
@@ -94,13 +94,13 @@ public class ScreenManager {
     private  Scene telaRemoverVeiculo;
     private TelaRemoverVeiculoController telaRemoverVeiculoController;
 
-    private ScreenManager(){
+    ScreenManager(){
         this.initialize();
     }
 
 
-    public Stage getPrimaryStage() {
-        return primaryStage;
+    public Stage getStage() {
+        return stage;
     }
 
     public Scene getMainScene() {
@@ -279,103 +279,103 @@ public class ScreenManager {
             this.mainController = (MainController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane adminPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/telaAdm.fxml").openStream());
+            AnchorPane adminPane = fxmlLoader.load(getClass().getResource("telaAdm.fxml").openStream());
             this.telaAdm = new Scene(adminPane);
             this.telaAdmController = (TelaAdmController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane aluguelPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAluguelDeVeiculos.fxml").openStream());
+            AnchorPane aluguelPane = fxmlLoader.load(getClass().getResource("TelaAluguelDeVeiculos.fxml").openStream());
             this.telaAluguelDeVeiculo = new Scene(aluguelPane);
             this.telaAluguelDeVeiculoController = ( TelaAluguelDeVeiculoController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane attClientePane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAtualizacaoCliente.fxml").openStream());
+            AnchorPane attClientePane = fxmlLoader.load(getClass().getResource("TelaAtualizacaoCliente.fxml").openStream());
             this.telaAtualizacaoCliente = new Scene(attClientePane);
             this.telaAtualizacaoClienteController = (TelaAtualizacaoClienteController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane attFuncionarioPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAtualizacaoFuncionario.fxml").openStream());
+            AnchorPane attFuncionarioPane = fxmlLoader.load(getClass().getResource("TelaAtualizacaoFuncionario.fxml").openStream());
             this.telaAtualizacaoFuncionario = new Scene(attFuncionarioPane);
             this.telaAtualizacaoFuncionarioController = (TelaAtualizacaoFuncionarioController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane attVeiculoPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaAtualizacaoVeiculo.fxml").openStream());
+            AnchorPane attVeiculoPane = fxmlLoader.load(getClass().getResource("TelaAtualizacaoVeiculo.fxml").openStream());
             this.telaAtualizacaoVeiculo = new Scene(attVeiculoPane);
             this.telaAtualizacaoVeiculoController = (TelaAtualizacaoVeiculoController) fxmlLoader.getController();
 
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane cadCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCadastrooCliente.fxml").openStream());
+            AnchorPane cadCliPane = fxmlLoader.load(getClass().getResource("TelaCadastroCliente.fxml").openStream());
             this.telaCadastroCliente = new Scene(cadCliPane);
             this.telaCadastroClienteController = (TelaCadastroClienteController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane cadFuncPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCadastrooFuncionario.fxml").openStream());
+            AnchorPane cadFuncPane = fxmlLoader.load(getClass().getResource("TelaCadastroFuncionario.fxml").openStream());
             this.telaCadastroFuncionario = new Scene(cadFuncPane);
             this.telaCadastroFuncionarioController = (TelaCadastroFuncionarioController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane cadVeicPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCadastroVeiculo.fxml").openStream());
+            AnchorPane cadVeicPane = fxmlLoader.load(getClass().getResource("TelaCadastroVeiculo.fxml").openStream());
             this.telaCadastroVeiculo = new Scene(cadVeicPane);
             this.telaCadastroVeiculoController = (TelaCadastroVeiculoController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            BorderPane telaCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaCliente.fxml"));
+            BorderPane telaCliPane = fxmlLoader.load(getClass().getResource("TelaCliente.fxml"));
             this.telaCliente = new Scene(telaCliPane);
             this.telaClienteController = (TelaClienteController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane telaFuncPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaFuncionario.fxml").openStream());
+            AnchorPane telaFuncPane = fxmlLoader.load(getClass().getResource("TelaFuncionario.fxml").openStream());
             this.telaFuncionario = new Scene(telaFuncPane);
             this.telaFuncionarioController = (TelaFuncionarioController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane telaVeicPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaVeiculos.fxml").openStream());
+            BorderPane telaVeicPane = fxmlLoader.load(getClass().getResource("TelaVeiculos.fxml").openStream());
             this.telaVeiculos = new Scene(telaVeicPane);
             this.telaVeiculosController = (TelaVeiculosController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane buscarCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaBuscarCliente.fxml").openStream());
+            AnchorPane buscarCliPane = fxmlLoader.load(getClass().getResource("TelaBuscarCliente.fxml").openStream());
             this.telaBuscarCliente = new Scene(buscarCliPane);
             this.telaBuscarClienteController = (TelaBuscarClienteController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane buscarFunPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaBuscarFuncionario.fxml").openStream());
+            AnchorPane buscarFunPane = fxmlLoader.load(getClass().getResource("TelaBuscarFuncionario.fxml").openStream());
             this.telaBuscarFuncionario = new Scene(buscarFunPane);
             this.telaBuscarFuncionarioController = (TelaBuscarFuncionarioController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane buscarVeiPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaBuscarVeiculo.fxml").openStream());
+            AnchorPane buscarVeiPane = fxmlLoader.load(getClass().getResource("TelaBuscarVeiculo.fxml").openStream());
             this.telaBuscarVeiculo = new Scene(buscarVeiPane);
             this.telaBuscarVeiculoController = (TelaBuscarVeiculoController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane gerenCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaGerenciamentoCliente.fxml").openStream());
+            AnchorPane gerenCliPane = fxmlLoader.load(getClass().getResource("TelaGerenciamentoCliente.fxml").openStream());
             this.telaGerenciamentoCliente = new Scene(gerenCliPane);
             this.telaGerenciamentoClienteController = (TelaGerenciamentoClienteController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane gerenFunPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaGerenciamentoFuncionario.fxml").openStream());
+            AnchorPane gerenFunPane = fxmlLoader.load(getClass().getResource("TelaGerenciamentoFuncionario.fxml").openStream());
             this.telaGerenciamentoFuncionario = new Scene(gerenFunPane);
             this.telaGerenciamentoFuncionarioController = (TelaGerenciamentoFuncionarioController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane gerenVeiPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaGerenciamentoVeiculo.fxml").openStream());
+            AnchorPane gerenVeiPane = fxmlLoader.load(getClass().getResource("TelaGerenciamentoVeiculo.fxml").openStream());
             this.telaGerenciamentoVeiculo = new Scene(gerenVeiPane);
             this.telaGerenciamentoVeiculoController = (TelaGerenciamentoVeiculoController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane remoCliPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaRemoverCliente.fxml").openStream());
+            AnchorPane remoCliPane = fxmlLoader.load(getClass().getResource("TelaRemoverCliente.fxml").openStream());
             this.telaRemoverCliente = new Scene(remoCliPane);
             this.telaRemoverClienteController = (TelaRemoverClienteController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane remoFunPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaRemoverFuncionario.fxml").openStream());
+            AnchorPane remoFunPane = fxmlLoader.load(getClass().getResource("TelaRemoverFuncionario.fxml").openStream());
             this.telaRemoverFuncionario = new Scene(remoFunPane);
             this.telaRemoverFuncionarioController = (TelaRemoverFuncionarioController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            AnchorPane remoVeiPane = fxmlLoader.load(getClass().getResource("/main/resources/com/locadora_abvv/TelaRemoverVeiculo.fxml").openStream());
+            AnchorPane remoVeiPane = fxmlLoader.load(getClass().getResource("TelaRemoverVeiculo.fxml").openStream());
             this.telaRemoverVeiculo = new Scene(remoVeiPane);
             this.telaRemoverVeiculoController = (TelaRemoverVeiculoController) fxmlLoader.getController();
 

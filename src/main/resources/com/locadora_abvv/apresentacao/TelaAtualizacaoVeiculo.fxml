@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaCadastroVeiculoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locadora_abvv.apresentacao.TelaAtualizacaoVeiculoController">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="60.0" prefWidth="602.0" style="-fx-background-color: #A9A9A9;">
                <children>
-                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" text="Voltar">
+                  <Button fx:id="voltarBtn" minWidth="51.0" mnemonicParsing="false" onAction="#voltarBtnClicked" prefHeight="31.0" prefWidth="51.0" text="Voltar">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
-                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de veículo" textAlignment="CENTER" wrappingWidth="546.3203125">
+                  <Text nodeOrientation="LEFT_TO_RIGHT" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualização de cadastro" textAlignment="CENTER" wrappingWidth="546.3203125">
                      <font>
                         <Font size="42.0" />
                      </font>
@@ -38,13 +38,13 @@
                         <Text layoutX="15.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor da multa" />
                         <Text layoutX="15.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo" />
                         <Text layoutX="15.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fabricante" />
-                        <TextField fx:id="corFIeld" layoutX="100.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a cor do carro" />
+                        <TextField fx:id="corField" layoutX="100.0" layoutY="23.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a cor do carro" />
                         <TextField fx:id="capacidadeField" layoutX="100.0" layoutY="53.0" prefHeight="25.0" prefWidth="320.0" promptText="Digite a capacidade do veículo" />
                         <TextField fx:id="placaField" layoutX="100.0" layoutY="130.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite a placa do veículo" />
-                        <TextField fx:id="valorMultaFIeld" layoutX="100.0" layoutY="160.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o valor fixo da multa para este veículo" />
-                        <TextField fx:id="modeloFIeld" layoutX="100.0" layoutY="190.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o modelo" />
-                        <Button fx:id="enviarBtn" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" text="Enviar" />
-                        <TextField fx:id="fabricanteField" layoutX="100.0" layoutY="220.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome do fabricante" />
+                        <TextField fx:id="valorMultaField" layoutX="100.0" layoutY="160.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o valor fixo da multa para este veículo" />
+                        <TextField fx:id="modeloField" layoutX="100.0" layoutY="190.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o modelo" />
+                        <Button fx:id="enviarBtn" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" onAction="#enviarBtnClicked" text="Enviar" />
+                        <TextField fx:id="FabricanteField" layoutX="100.0" layoutY="220.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome do fabricante" />
                         <TextArea fx:id="descricaoField" layoutX="100.0" layoutY="84.0" prefHeight="37.0" prefWidth="320.0" promptText="Digite a descrição do veículo" />
                      </children>
                   </AnchorPane>

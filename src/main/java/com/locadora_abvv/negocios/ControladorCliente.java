@@ -30,7 +30,6 @@ public class ControladorCliente {
         return instance;
     }
     public void cadastrar(Cliente c) throws ElementoExisteException /* , ClienteInvalidoException */ {
-        boolean ok = true;
 
         List<Cliente> clientes = this.repositorioClientes.listar();
         if(clientes.contains(c)){
@@ -51,7 +50,6 @@ public class ControladorCliente {
     }
 
     public void remover (Cliente c) throws ElementoNaoExisteExcepcion {
-        boolean ok = false;
 
         List<Cliente> clientes = this.repositorioClientes.listar();
         if(clientes.contains(c)){
@@ -64,7 +62,6 @@ public class ControladorCliente {
     }
 
     public void atualizar (Cliente c) throws ElementoNaoExisteExcepcion {
-        boolean ok = false;
 
         List<Cliente> clientes = this.repositorioClientes.listar();
         if(clientes.contains(c)){

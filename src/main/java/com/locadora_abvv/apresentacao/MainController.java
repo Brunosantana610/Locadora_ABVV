@@ -4,6 +4,9 @@ import com.locadora_abvv.negocios.ControladorCliente;
 import com.locadora_abvv.negocios.ControladorFuncionario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -16,7 +19,7 @@ public class MainController {
 
     ControladorCliente controladorCliente = new ControladorCliente();
     ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
-    ScreenManager sc;
+
     @FXML
     private Button entrarBtn;
 
@@ -25,6 +28,8 @@ public class MainController {
 
     @FXML
     private TextField user;
+
+
 
     public Button getEntrarBtn() {
         return entrarBtn;
@@ -59,6 +64,13 @@ public class MainController {
 
 
     private void checkLogin() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent telaCliente = fxmlLoader.load(getClass().getResource("TelaCliente.fxml"));
+        Parent telaFuncionario = fxmlLoader.load(getClass().getResource("TelaFuncionario.fxml"));
+        Parent telaAdm = fxmlLoader.load(getClass().getResource("TelaAdm.fxml"));
+
+        Stage novaJanela = (Stage) entrarBtn.getScene().getWindow();
+
         if (user.getText().isEmpty() || senha.getText().isEmpty()) {
             Alert dialogoErro = new Alert(Alert.AlertType.WARNING);
             dialogoErro.setHeaderText("ERRO");
@@ -72,8 +84,8 @@ public class MainController {
             dialogoErro.showAndWait();
 
         } else if (controladorCliente.buscar(user.getText()).equals(controladorCliente.getCliente().getCpf()) && controladorCliente.buscar(senha.getText()).equals(controladorCliente.getCliente().getSenha())) {
-            Stage st = (Stage) getEntrarBtn().getScene().getWindow();
-            st.setScene(sc.getTelaCliente());
+            novaJanela.setScene(new Scene(telaCliente));
+
 
         } else if (controladorFuncionario.buscar(user.getText()) == null) {
             Alert dialogoErro = new Alert(Alert.AlertType.WARNING);
@@ -82,14 +94,13 @@ public class MainController {
             dialogoErro.showAndWait();
 
         } else if (controladorFuncionario.buscar(user.getText()).equals(controladorFuncionario.getFuncionario().getCpf()) && controladorFuncionario.buscar(senha.getText()).equals(controladorFuncionario.getFuncionario().getSenha())) {
-            Stage st = (Stage) getEntrarBtn().getScene().getWindow();
-
             if (controladorFuncionario.getFuncionario().getFuncao() == 1) {
-                st.setScene(sc.getTelaFuncionario());
+                novaJanela.setScene(new Scene(telaFuncionario));
             } else if (controladorFuncionario.getFuncionario().getFuncao() == 2) {
-                st.setScene(sc.getTelaAdm());
+                novaJanela.setScene(new Scene(telaAdm));
             }
 
         }
+
     }
     }

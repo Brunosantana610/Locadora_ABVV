@@ -1,5 +1,6 @@
 package com.locadora_abvv;
 
+import com.locadora_abvv.apresentacao.MainController;
 import com.locadora_abvv.apresentacao.ScreenManager;
 import javafx.application.Application;
 import javafx.stage.Stage;

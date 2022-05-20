@@ -6,6 +6,8 @@ import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Cliente;
 import com.locadora_abvv.negocios.beans.Fabricante;
+import java.util.List;
+
 
 public class ControladorFabricante {
 
@@ -24,33 +26,24 @@ public class ControladorFabricante {
     }
 
     public void cadastrar(Fabricante f) throws ElementoExisteException {
-        boolean ok = true;
-        for(Fabricante fabricante : this.repositorioFabricantes.listar()){
-            if(fabricante == f){
-                ok = false;
-            }
-            break;
-        }
-        if(ok) {
-            this.repositorioFabricantes.cadastrar(f);
-        }
-        else{
+
+        List<Fabricante> fabricantes = this.repositorioFabricantes.listar();
+        if(fabricantes.contains(f)){
             throw new ElementoExisteException(f);
         }
+        else{
+            this.repositorioFabricantes.cadastrar(f);
+        }
+
     }
     public void listar(){
         this.repositorioFabricantes.listar();
     }
 
     public void remover(Fabricante f) throws ElementoNaoExisteExcepcion {
-        boolean ok = false;
-        for(Fabricante fabricante : this.repositorioFabricantes.listar()){
-            if(fabricante == f){
-                ok = true;
-            }
-            break;
-        }
-        if(ok) {
+
+        List<Fabricante> fabricantes = this.repositorioFabricantes.listar();
+        if(fabricantes.contains(f)){
             this.repositorioFabricantes.remover(f);
         }
         else{
@@ -59,18 +52,14 @@ public class ControladorFabricante {
 
     }
     public void atualizar(Fabricante f) throws ElementoNaoExisteExcepcion {
-        boolean ok = false;
-        for(Fabricante fabricante : this.repositorioFabricantes.listar()){
-            if(fabricante == f){
-                ok = true;
-            }
-            break;
-        }
-        if(ok) {
+
+        List<Fabricante> fabricantes = this.repositorioFabricantes.listar();
+        if(fabricantes.contains(f)){
             this.repositorioFabricantes.atualizar(f);
         }
         else{
             throw new ElementoNaoExisteExcepcion(f);
         }
+
     }
 }

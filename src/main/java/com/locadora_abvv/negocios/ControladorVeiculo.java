@@ -6,6 +6,7 @@ import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Veiculo;
+import java.util.List;
 
 import java.time.LocalDate;
 

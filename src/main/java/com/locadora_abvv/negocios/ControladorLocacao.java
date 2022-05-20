@@ -7,6 +7,7 @@ import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Locacao;
 import com.locadora_abvv.negocios.beans.Cliente;
+import java.util.List;
 
 public class ControladorLocacao {
 

@@ -6,6 +6,7 @@ import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Cliente;
 import com.locadora_abvv.negocios.beans.Funcionario;
+import java.util.List;
 
 public class ControladorFuncionario {
 

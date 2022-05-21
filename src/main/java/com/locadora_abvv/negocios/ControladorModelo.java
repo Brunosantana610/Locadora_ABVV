@@ -6,6 +6,8 @@ import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Modelo;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public class ControladorModelo {
@@ -23,7 +25,20 @@ public class ControladorModelo {
         return instance;
     }
 
-    public void cadastrar(Modelo m) throws ElementoExisteException {
+    public void cadastrar(Modelo m) throws ElementoExisteException /*, ModeloInvalidoException*/{
+        List<Modelo> modelos = this.repositorioModelos.listar();
+        if(modelos.contains(m)){
+            throw new ElementoExisteException(m);
+        }
+        else{
+            LocalDate dataAtual = LocalDate.now();
+            if(m != null && m.getAno() < dataAtual.getYear() + 2){
+                this.repositorioModelos.cadastrar(m);
+            }
+            else{
+                //throw new ModeloInvalidoException();
+            }
+        }
 
         boolean ok = true;
         for(Modelo modelo : this.repositorioModelos.listar()){
@@ -45,10 +60,22 @@ public class ControladorModelo {
     }
 
     public void remover(Modelo m) throws ElementoNaoExisteExcepcion {
-        this.repositorioModelos.remover(m);
+        List<Modelo> modelos = this.repositorioModelos.listar();
+        if(modelos.contains(m)){
+            this.repositorioModelos.remover(m);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(m);
+        }
     }
 
     public void atualizar(Modelo m) throws ElementoNaoExisteExcepcion {
-        this.repositorioModelos.atualizar(m);
+        List<Modelo> modelos = this.repositorioModelos.listar();
+        if(modelos.contains(m)){
+            this.repositorioModelos.atualizar(m);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(m);
+        }
     }
 }

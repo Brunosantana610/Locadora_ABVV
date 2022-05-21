@@ -5,6 +5,7 @@ import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Fabricante;
+import com.locadora_abvv.negocios.beans.Modelo;
 import com.locadora_abvv.negocios.beans.Veiculo;
 import java.util.List;
 
@@ -26,27 +27,20 @@ public class ControladorVeiculo {
         return instance;
     }
 
-    public void cadastrar(Veiculo v) throws ElementoExisteException {
-        boolean ok = true;
-        for(Veiculo veiculo : this.repositorioVeiculos.listar()){
-            if(veiculo == v){
-                ok = false;
-            }
-            break;
+    public void cadastrar(Veiculo v) throws ElementoExisteException /*, ModeloInvalidoException*/ {
+        List<Veiculo> veiculos = this.repositorioVeiculos.listar();
+        if(veiculos.contains(v)){
+            throw new ElementoExisteException(v);
         }
-        if(ok) {
+        else{
             LocalDate dataAtual = LocalDate.now();
-            if(v.getModelo().getAno() < dataAtual.getYear() + 2) {
+            if(v != null && v.getModelo().getAno() < dataAtual.getYear() + 2){
                 this.repositorioVeiculos.cadastrar(v);
             }
             else{
-                throw new IllegalArgumentException("ERRO: Modelo não pode ser 2 anos ou mais a frente do ano vigente");
+                //throw new ModeloInvalidoException();
             }
         }
-        else{
-            throw new ElementoExisteException(v);
-        }
-        
     }
 
 
@@ -55,10 +49,22 @@ public class ControladorVeiculo {
     }
 
     public void remover(Veiculo v) throws ElementoNaoExisteExcepcion {
-        this.repositorioVeiculos.remover(v);
+        List<Veiculo> veiculos = this.repositorioVeiculos.listar();
+        if(veiculos.contains(v)){
+            this.repositorioVeiculos.remover(v);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(v);
+        }
     }
 
     public void atualizar(Veiculo v) throws ElementoNaoExisteExcepcion {
-        this.repositorioVeiculos.atualizar(v);
+        List<Veiculo> veiculos = this.repositorioVeiculos.listar();
+        if(veiculos.contains(v)){
+            this.repositorioVeiculos.atualizar(v);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(v);
+        }
     }
 }

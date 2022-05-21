@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.FuncionarioInvalidoException;
 import com.locadora_abvv.negocios.beans.Cliente;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Funcionario;
@@ -34,7 +35,7 @@ public class ControladorFuncionario {
         return instance;
     }
 
-    public void cadastrar(Funcionario f) throws ElementoExisteException /* , FuncionarioInvalidoException, FuncaoInvalidaException */ {
+    public void cadastrar(Funcionario f) throws ElementoExisteException, FuncionarioInvalidoException /*, FuncaoInvalidaException*/ {
         if (f.getFuncao()==2){
             List<Funcionario> funcionarios = this.repositorioFuncionarios.listar();
 
@@ -46,7 +47,7 @@ public class ControladorFuncionario {
                     this.repositorioFuncionarios.cadastrar(f);
                 }
                 else{
-                    //throw new FuncionarioInvalidoException();
+                    throw new FuncionarioInvalidoException(f);
                 }
             }
         }

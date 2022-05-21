@@ -24,34 +24,20 @@ public class ControladorLocacao {
         return instance;
     }
 
-    public void cadastrar(Locacao l) throws ElementoExisteException {
-        boolean ok = true;
-        for(Locacao locacao : this.repositorioLocacoes.listar()){
-            if(locacao == l){
-                ok = false;
-            }
-            break;
-        }
-        if(ok) {
-            boolean okey = true;
-            for(Locacao loc : this.repositorioLocacoes.listar()){
-                if(loc.getCliente() == l.getCliente()){
-                    if(loc.getAtivo() == true){
-                        okey = false;
-                    }
-                    break;
-                }
-            }
-
-            if(okey) {
-                this.repositorioLocacoes.cadastrar(l);
-            }
-            else{
-                throw new IllegalArgumentException("ERRO: Cliente já possui uma locação ativa");
-            }
+    public void cadastrar(Locacao l) throws ElementoExisteException /*, ClienteInvalidoException*/{
+        List<Locacao> locacoes = this.repositorioLocacoes.listar();
+        if(locacoes.contains(l)){
+            throw new ElementoExisteException(l);
         }
         else{
-            throw new ElementoExisteException(l);
+            for(Locacao locacao : locacoes){
+                if(locacao.getCliente().equals(l.getCliente()) && l.getAtivo()){
+                    //throw new ClienteInvalidoException();
+                }
+                else{
+                    this.repositorioLocacoes.cadastrar(l);
+                }
+            }
         }
 
     }
@@ -62,7 +48,13 @@ public class ControladorLocacao {
 
 
     public void atualizar(Locacao l) throws ElementoNaoExisteExcepcion {
-        this.repositorioLocacoes.atualizar(l);
+        List<Locacao> locacoes = this.repositorioLocacoes.listar();
+        if(locacoes.contains(l)){
+            this.repositorioLocacoes.atualizar(l);
+        }
+        else{
+            throw new ElementoNaoExisteExcepcion(l);
+        }
     }
 
     public void finalizarLocacao(Locacao l){

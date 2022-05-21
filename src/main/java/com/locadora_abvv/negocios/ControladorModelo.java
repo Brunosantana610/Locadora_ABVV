@@ -4,12 +4,12 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.ElementoNuloException;
 import com.locadora_abvv.exceptions.ModeloInvalidoException;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Modelo;
-
 import java.time.LocalDate;
-import java.util.List;
+
 
 public class ControladorModelo {
 
@@ -26,19 +26,13 @@ public class ControladorModelo {
         return instance;
     }
 
-    public void cadastrar(Modelo m) throws ElementoExisteException , ModeloInvalidoException {
-        List<Modelo> modelos = this.repositorioModelos.listar();
-        if(modelos.contains(m)){
-            throw new ElementoExisteException(m);
+    public void cadastrar(Modelo m) throws ElementoExisteException, ModeloInvalidoException, ElementoNuloException {
+        LocalDate dataAtual = LocalDate.now();
+        if(m != null && m.getAno() < dataAtual.getYear() + 2){
+            this.repositorioModelos.cadastrar(m);
         }
         else{
-            LocalDate dataAtual = LocalDate.now();
-            if(m != null && m.getAno() < dataAtual.getYear() + 2){
-                this.repositorioModelos.cadastrar(m);
-            }
-            else{
-                throw new ModeloInvalidoException(m);
-            }
+            throw new ModeloInvalidoException(m);
         }
 
         boolean ok = true;
@@ -61,22 +55,10 @@ public class ControladorModelo {
     }
 
     public void remover(Modelo m) throws ElementoNaoExisteExcepcion {
-        List<Modelo> modelos = this.repositorioModelos.listar();
-        if(modelos.contains(m)){
-            this.repositorioModelos.remover(m);
-        }
-        else{
-            throw new ElementoNaoExisteExcepcion(m);
-        }
+        this.repositorioModelos.remover(m);
     }
 
     public void atualizar(Modelo m) throws ElementoNaoExisteExcepcion {
-        List<Modelo> modelos = this.repositorioModelos.listar();
-        if(modelos.contains(m)){
-            this.repositorioModelos.atualizar(m);
-        }
-        else{
-            throw new ElementoNaoExisteExcepcion(m);
-        }
+        this.repositorioModelos.atualizar(m);
     }
 }

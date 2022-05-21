@@ -4,9 +4,9 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.ElementoNuloException;
 import com.locadora_abvv.negocios.beans.Cliente;
 import com.locadora_abvv.negocios.beans.Fabricante;
-import java.util.List;
 
 
 public class ControladorFabricante {
@@ -25,41 +25,17 @@ public class ControladorFabricante {
         return instance;
     }
 
-    public void cadastrar(Fabricante f) throws ElementoExisteException {
-
-        List<Fabricante> fabricantes = this.repositorioFabricantes.listar();
-        if(fabricantes.contains(f)){
-            throw new ElementoExisteException(f);
-        }
-        else{
-            this.repositorioFabricantes.cadastrar(f);
-        }
-
+    public void cadastrar(Fabricante f) throws ElementoExisteException, ElementoNuloException {
+        this.repositorioFabricantes.cadastrar(f);
     }
     public void listar(){
         this.repositorioFabricantes.listar();
     }
 
     public void remover(Fabricante f) throws ElementoNaoExisteExcepcion {
-
-        List<Fabricante> fabricantes = this.repositorioFabricantes.listar();
-        if(fabricantes.contains(f)){
-            this.repositorioFabricantes.remover(f);
-        }
-        else{
-            throw new ElementoNaoExisteExcepcion(f);
-        }
-
+        this.repositorioFabricantes.remover(f);
     }
     public void atualizar(Fabricante f) throws ElementoNaoExisteExcepcion {
-
-        List<Fabricante> fabricantes = this.repositorioFabricantes.listar();
-        if(fabricantes.contains(f)){
-            this.repositorioFabricantes.atualizar(f);
-        }
-        else{
-            throw new ElementoNaoExisteExcepcion(f);
-        }
-
+        this.repositorioFabricantes.atualizar(f);
     }
 }

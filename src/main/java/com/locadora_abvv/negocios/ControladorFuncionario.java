@@ -4,11 +4,11 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.ElementoNuloException;
 import com.locadora_abvv.exceptions.FuncionarioInvalidoException;
 import com.locadora_abvv.negocios.beans.Cliente;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Funcionario;
-import java.util.List;
 
 public class ControladorFuncionario {
 
@@ -35,21 +35,16 @@ public class ControladorFuncionario {
         return instance;
     }
 
-    public void cadastrar(Funcionario f) throws ElementoExisteException, FuncionarioInvalidoException /*, FuncaoInvalidaException*/ {
+    public void cadastrar(Funcionario f) throws ElementoExisteException, FuncionarioInvalidoException, ElementoNuloException /*, FuncaoInvalidaException*/ {
         if (f.getFuncao()==2){
-            List<Funcionario> funcionarios = this.repositorioFuncionarios.listar();
 
-            if(funcionarios.contains(f)){
-                throw new ElementoExisteException(f);
+            if (f != null && f.calcularIdade() >= 18) {
+                this.repositorioFuncionarios.cadastrar(f);
             }
             else{
-                if (f != null && f.calcularIdade() >= 18) {
-                    this.repositorioFuncionarios.cadastrar(f);
-                }
-                else{
-                    throw new FuncionarioInvalidoException(f);
-                }
+                throw new FuncionarioInvalidoException(f);
             }
+
         }
         else{
             // throw new FuncaoInvalidaException();
@@ -62,13 +57,7 @@ public class ControladorFuncionario {
 
     public void remover(Funcionario f) throws ElementoNaoExisteExcepcion /* , FuncaoInvalidaException */ {
         if (f.getFuncao()==2) {
-            List<Funcionario> funcionarios = this.repositorioFuncionarios.listar();
-            if(funcionarios.contains(f)){
-                this.repositorioFuncionarios.remover(f);
-            }
-            else{
-                throw new ElementoNaoExisteExcepcion(f);
-            }
+            this.repositorioFuncionarios.remover(f);
         }
         else{
             // throw new FuncaoInvalidaException();
@@ -77,13 +66,7 @@ public class ControladorFuncionario {
 
     public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion /* , FuncaoInvalidaException */ {
         if (f.getFuncao()==2) {
-            List<Funcionario> funcionarios = this.repositorioFuncionarios.listar();
-            if(funcionarios.contains(f)){
-                this.repositorioFuncionarios.atualizar(f);
-            }
-            else{
-                throw new ElementoNaoExisteExcepcion(f);
-            }
+            this.repositorioFuncionarios.atualizar(f);
         }
         else{
             // throw new FuncaoInvalidaException();

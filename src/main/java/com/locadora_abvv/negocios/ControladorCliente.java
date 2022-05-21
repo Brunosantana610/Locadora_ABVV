@@ -2,15 +2,11 @@ package com.locadora_abvv.negocios;
 
 import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
-import com.locadora_abvv.exceptions.ClienteAlugadoException;
-import com.locadora_abvv.exceptions.ClienteInvalidoException;
-import com.locadora_abvv.exceptions.ElementoExisteException;
-import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.*;
 import com.locadora_abvv.negocios.beans.Cliente;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Locacao;
 
-import java.util.List;
 
 public class ControladorCliente {
     private IRepositorio<Cliente> repositorioClientes;
@@ -30,19 +26,13 @@ public class ControladorCliente {
         }
         return instance;
     }
-    public void cadastrar(Cliente c) throws ElementoExisteException, ClienteInvalidoException {
+    public void cadastrar(Cliente c) throws ElementoExisteException, ClienteInvalidoException, ElementoNuloException {
 
-        List<Cliente> clientes = this.repositorioClientes.listar();
-        if(clientes.contains(c)){
-            throw new ElementoExisteException(c);
+        if(c != null && c.calcularIdade() >= 18 && c.getCnh() != null) {
+               this.repositorioClientes.cadastrar(c);
         }
         else{
-            if(c != null && c.calcularIdade() >= 18 && c.getCnh() != null) {
-                this.repositorioClientes.cadastrar(c);
-            }
-            else{
-                throw new ClienteInvalidoException(c);
-            }
+            throw new ClienteInvalidoException(c);
         }
     }
 
@@ -51,26 +41,11 @@ public class ControladorCliente {
     }
 
     public void remover (Cliente c) throws ElementoNaoExisteExcepcion {
-
-        List<Cliente> clientes = this.repositorioClientes.listar();
-        if(clientes.contains(c)){
-            this.repositorioClientes.remover(c);
-        }
-        else{
-            throw new ElementoNaoExisteExcepcion(c);
-        }
-
+        this.repositorioClientes.remover(c);
     }
 
     public void atualizar (Cliente c) throws ElementoNaoExisteExcepcion {
-
-        List<Cliente> clientes = this.repositorioClientes.listar();
-        if(clientes.contains(c)){
-            this.repositorioClientes.atualizar(c);
-        }
-        else{
-            throw new ElementoNaoExisteExcepcion(c);
-        }
+        this.repositorioClientes.atualizar(c);
     }
 
 

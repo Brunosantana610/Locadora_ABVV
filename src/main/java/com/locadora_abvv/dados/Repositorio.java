@@ -2,6 +2,7 @@ package com.locadora_abvv.dados;
 
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.ElementoNuloException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,11 +26,15 @@ public class Repositorio<T> implements IRepositorio<T>{
     }
 
     @Override
-    public void cadastrar(T obj) throws ElementoExisteException {
+    public void cadastrar(T obj) throws ElementoExisteException, ElementoNuloException {
         if (!this.elementos.contains(obj)) {
             this.elementos.add(obj);
-        } else {
+        }
+        else if(this.elementos.contains(obj) && obj != null) {
             throw new ElementoExisteException(obj);
+        }
+        else{
+            throw new ElementoNuloException(obj);
         }
 
         RepoFiles.salvarArquivo(elementos, this.nomeArquivo);

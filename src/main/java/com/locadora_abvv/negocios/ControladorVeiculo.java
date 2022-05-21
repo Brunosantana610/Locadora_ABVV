@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.ModeloInvalidoException;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Modelo;
 import com.locadora_abvv.negocios.beans.Veiculo;
@@ -27,7 +28,7 @@ public class ControladorVeiculo {
         return instance;
     }
 
-    public void cadastrar(Veiculo v) throws ElementoExisteException /*, ModeloInvalidoException*/ {
+    public void cadastrar(Veiculo v) throws ElementoExisteException , ModeloInvalidoException {
         List<Veiculo> veiculos = this.repositorioVeiculos.listar();
         if(veiculos.contains(v)){
             throw new ElementoExisteException(v);
@@ -38,7 +39,7 @@ public class ControladorVeiculo {
                 this.repositorioVeiculos.cadastrar(v);
             }
             else{
-                //throw new ModeloInvalidoException();
+                throw new ModeloInvalidoException(v.getModelo());
             }
         }
     }

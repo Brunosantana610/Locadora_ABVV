@@ -5,6 +5,7 @@ import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Cliente;
+import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Funcionario;
 import java.util.List;
 
@@ -33,29 +34,59 @@ public class ControladorFuncionario {
         return instance;
     }
 
-    public void cadastrar(Funcionario f) throws ElementoExisteException {
-        if (f.getFuncao()==2)
-            if (f.calcularIdade() >= 18) {
-                this.repositorioFuncionarios.cadastrar(f);
-            }
-        else{
-            throw new IllegalArgumentException("ERRO: Funcionário não pode ter menos de 18 anos");
-            }
+    public void cadastrar(Funcionario f) throws ElementoExisteException /* , FuncionarioInvalidoException, FuncaoInvalidaException */ {
+        if (f.getFuncao()==2){
+            List<Funcionario> funcionarios = this.repositorioFuncionarios.listar();
 
+            if(funcionarios.contains(f)){
+                throw new ElementoExisteException(f);
+            }
+            else{
+                if (f != null && f.calcularIdade() >= 18) {
+                    this.repositorioFuncionarios.cadastrar(f);
+                }
+                else{
+                    //throw new FuncionarioInvalidoException();
+                }
+            }
+        }
+        else{
+            // throw new FuncaoInvalidaException();
+        }
     }
 
     public void listar(){
         this.repositorioFuncionarios.listar();
     }
 
-    public void remover(Funcionario f) throws ElementoNaoExisteExcepcion {
-        if (f.getFuncao()==2)
-            this.repositorioFuncionarios.remover(f);
+    public void remover(Funcionario f) throws ElementoNaoExisteExcepcion /* , FuncaoInvalidaException */ {
+        if (f.getFuncao()==2) {
+            List<Funcionario> funcionarios = this.repositorioFuncionarios.listar();
+            if(funcionarios.contains(f)){
+                this.repositorioFuncionarios.remover(f);
+            }
+            else{
+                throw new ElementoNaoExisteExcepcion(f);
+            }
+        }
+        else{
+            // throw new FuncaoInvalidaException();
+        }
     }
 
-    public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion {
-        if (f.getFuncao()==2)
-            this.repositorioFuncionarios.atualizar(f);
+    public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion /* , FuncaoInvalidaException */ {
+        if (f.getFuncao()==2) {
+            List<Funcionario> funcionarios = this.repositorioFuncionarios.listar();
+            if(funcionarios.contains(f)){
+                this.repositorioFuncionarios.atualizar(f);
+            }
+            else{
+                throw new ElementoNaoExisteExcepcion(f);
+            }
+        }
+        else{
+            // throw new FuncaoInvalidaException();
+        }
     }
 
     public Funcionario buscar(String cpf){

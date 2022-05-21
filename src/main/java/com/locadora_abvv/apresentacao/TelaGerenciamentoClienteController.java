@@ -35,23 +35,36 @@ public class TelaGerenciamentoClienteController {
     private Button voltarBtn;
 
     @FXML
-    void addBtnCLicked(ActionEvent event) {
+    void addBtnCLicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaCadastroCliente.fxml"));
+
+        Stage novaJanela = (Stage) addButton.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
 
     }
 
     @FXML
-    void attBtnClicked(ActionEvent event) {
+    void attBtnClicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaAtualizacaoCliente.fxml"));
 
+        Stage novaJanela = (Stage) attButton.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
     }
 
     @FXML
-    void buscarBtnClicked(ActionEvent event) {
+    void buscarBtnClicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaBuscarCliente.fxml"));
 
+        Stage novaJanela = (Stage) buscarBtn.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
     }
 
     @FXML
-    void removerBtnClicked(ActionEvent event) {
+    void removerBtnClicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaRemoverCliente.fxml"));
 
+        Stage novaJanela = (Stage) removerBtn.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
     }
 
     @FXML

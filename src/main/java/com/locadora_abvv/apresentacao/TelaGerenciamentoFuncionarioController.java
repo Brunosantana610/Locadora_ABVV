@@ -29,23 +29,36 @@ public class TelaGerenciamentoFuncionarioController {
     private Button voltarBtn;
 
     @FXML
-    void addBtnClicked(ActionEvent event) {
+    void addBtnClicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaCadastroFuncionario.fxml"));
+
+        Stage novaJanela = (Stage) addButton.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
+    }
+
+    @FXML
+    void attBtnClicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaAtualizacaoFuncionario.fxml"));
+
+        Stage novaJanela = (Stage) attButton.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
 
     }
 
     @FXML
-    void attBtnClicked(ActionEvent event) {
+    void buscarBtnClicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaBuscarFuncionario.fxml"));
 
+        Stage novaJanela = (Stage) buscarBtn.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
     }
 
     @FXML
-    void buscarBtnClicked(ActionEvent event) {
+    void removerBtnClicked(ActionEvent event) throws IOException {
+        Parent tela = fxmlLoader.load(getClass().getResource("TelaRemoverFuncionario.fxml"));
 
-    }
-
-    @FXML
-    void removerBtnClicked(ActionEvent event) {
-
+        Stage novaJanela = (Stage) removerBtn.getScene().getWindow();
+        novaJanela.setScene(new Scene(tela));
     }
 
     @FXML

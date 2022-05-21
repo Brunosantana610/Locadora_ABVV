@@ -3,6 +3,7 @@ package com.locadora_abvv.negocios;
 import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ClienteAlugadoException;
+import com.locadora_abvv.exceptions.ClienteInvalidoException;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.beans.Cliente;
@@ -29,7 +30,7 @@ public class ControladorCliente {
         }
         return instance;
     }
-    public void cadastrar(Cliente c) throws ElementoExisteException /* , ClienteInvalidoException */ {
+    public void cadastrar(Cliente c) throws ElementoExisteException, ClienteInvalidoException {
 
         List<Cliente> clientes = this.repositorioClientes.listar();
         if(clientes.contains(c)){
@@ -40,7 +41,7 @@ public class ControladorCliente {
                 this.repositorioClientes.cadastrar(c);
             }
             else{
-                //throw new ClienteInvalidoException();
+                throw new ClienteInvalidoException(c);
             }
         }
     }

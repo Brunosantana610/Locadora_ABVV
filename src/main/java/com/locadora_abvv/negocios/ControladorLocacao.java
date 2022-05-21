@@ -4,6 +4,7 @@ import com.locadora_abvv.dados.IRepositorio;
 import com.locadora_abvv.dados.Repositorio;
 import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.LocacaoInvalidoException;
 import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Locacao;
 import com.locadora_abvv.negocios.beans.Cliente;
@@ -24,7 +25,7 @@ public class ControladorLocacao {
         return instance;
     }
 
-    public void cadastrar(Locacao l) throws ElementoExisteException /*, ClienteInvalidoException*/{
+    public void cadastrar(Locacao l) throws ElementoExisteException, LocacaoInvalidoException{
         List<Locacao> locacoes = this.repositorioLocacoes.listar();
         if(locacoes.contains(l)){
             throw new ElementoExisteException(l);
@@ -32,7 +33,7 @@ public class ControladorLocacao {
         else{
             for(Locacao locacao : locacoes){
                 if(locacao.getCliente().equals(l.getCliente()) && l.getAtivo()){
-                    //throw new ClienteInvalidoException();
+                    throw new LocacaoInvalidoException(l);
                 }
                 else{
                     this.repositorioLocacoes.cadastrar(l);

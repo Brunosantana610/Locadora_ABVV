@@ -33,7 +33,7 @@ public class ControladorFuncionario {
         return instance;
     }
 
-    public void cadastrar(Funcionario f) throws ElementoExisteException, FuncionarioInvalidoException, ElementoNuloException /*, FuncaoInvalidaException*/ {
+    public void cadastrar(Funcionario f) throws ElementoExisteException, FuncionarioInvalidoException, ElementoNuloException{
         if (f.getFuncao()==2){
 
             if (f != null && f.calcularIdade() >= 18) {
@@ -45,7 +45,7 @@ public class ControladorFuncionario {
 
         }
         else{
-            // throw new FuncaoInvalidaException();
+            throw new FuncionarioInvalidoException(f);
         }
     }
 
@@ -53,21 +53,21 @@ public class ControladorFuncionario {
         this.repositorioFuncionarios.listar();
     }
 
-    public void remover(Funcionario f) throws ElementoNaoExisteExcepcion /* , FuncaoInvalidaException */ {
+    public void remover(Funcionario f) throws ElementoNaoExisteExcepcion, FuncionarioInvalidoException{
         if (f.getFuncao()==2) {
             this.repositorioFuncionarios.remover(f);
         }
         else{
-            throw new ElementoNaoExisteExcepcion(f);
+            throw new FuncionarioInvalidoException(f);
         }
     }
 
-    public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion /* , FuncaoInvalidaException */ {
+    public void atualizar(Funcionario f) throws ElementoNaoExisteExcepcion, FuncionarioInvalidoException{
         if (f.getFuncao()==2) {
             this.repositorioFuncionarios.atualizar(f);
         }
         else{
-            throw new ElementoNaoExisteExcepcion(f);
+            throw new FuncionarioInvalidoException(f);
         }
     }
 

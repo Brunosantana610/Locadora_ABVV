@@ -8,7 +8,7 @@ public class FuncionarioInvalidoException extends Exception {
     private Funcionario funcionario;
 
     public FuncionarioInvalidoException(Funcionario funcionario){
-        super("Funcionário inválido: Não foi possível adicionar o funcionário ao repositório");
+        super("Funcionário inválido");
         this.funcionario = funcionario;
     }
 

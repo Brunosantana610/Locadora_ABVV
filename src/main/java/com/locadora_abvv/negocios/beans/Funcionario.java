@@ -15,9 +15,9 @@ public class Funcionario extends Pessoa{
         }
     }
 
-    private static Funcao funcao;
+    private static int funcao;
 
-    public Funcionario(String nome, String cpf, String senha, String telefone, String email, String endereco, LocalDate dataNascimento, double salario, int matricula, Funcao funcao) {
+    public Funcionario(String nome, String cpf, String senha, String telefone, String email, String endereco, LocalDate dataNascimento, double salario, int matricula, int funcao) {
         super(nome, cpf, senha, telefone, email, endereco, dataNascimento);
         this.salario = salario;
         this.matricula = matricula;
@@ -25,10 +25,10 @@ public class Funcionario extends Pessoa{
     }
 
     public int getFuncao() {
-        return funcao.valor;
+        return funcao;
     }
 
-    public void setFuncao(Funcao funcao) {
+    public void setFuncao(int funcao) {
         this.funcao = funcao;
     }
 

@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="voltarBtn funcionando">
+    <list default="true" id="05819719-cf3c-4c7c-8029-d10852d324e0" name="Changes" comment="telas de gerenciamento ok">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaGerenciamentoClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaGerenciamentoClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaGerenciamentoFuncionarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaGerenciamentoFuncionarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaGerenciamentoVeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaGerenciamentoVeiculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaAtualizacaoClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaAtualizacaoClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaAtualizacaoFuncionarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaAtualizacaoFuncionarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaAtualizacaoVeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaAtualizacaoVeiculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaCadastroClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaCadastroClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaCadastroFuncionarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaCadastroFuncionarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaCadastroVeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/apresentacao/TelaCadastroVeiculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/locadora_abvv/negocios/beans/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoFuncionario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaAtualizacaoVeiculo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/locadora_abvv/apresentacao/TelaCadastroVeiculo.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +59,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -165,6 +175,8 @@
       <workItem from="1653058057983" duration="2533000" />
       <workItem from="1653066655029" duration="101000" />
       <workItem from="1653068722492" duration="3123000" />
+      <workItem from="1653186110173" duration="4328000" />
+      <workItem from="1653191847147" duration="1124000" />
     </task>
     <task id="LOCAL-00001" summary="Exceção cliente">
       <created>1652053939517</created>
@@ -215,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653062440755</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="telas de gerenciamento ok">
+      <created>1653170233499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653170233499</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +260,7 @@
     <MESSAGE value="ScreenManager" />
     <MESSAGE value="atualização controllers + fxml" />
     <MESSAGE value="ajustes" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajustes" />
+    <MESSAGE value="telas de gerenciamento ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="telas de gerenciamento ok" />
   </component>
 </project>

@@ -1,7 +1,11 @@
 package com.locadora_abvv.apresentacao;
 
+import com.locadora_abvv.exceptions.ClienteInvalidoException;
+import com.locadora_abvv.exceptions.ElementoExisteException;
+import com.locadora_abvv.exceptions.ElementoNuloException;
 import com.locadora_abvv.negocios.ControladorCliente;
 import com.locadora_abvv.negocios.ControladorFuncionario;
+import com.locadora_abvv.negocios.beans.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,10 +27,10 @@ public class TelaCadastroClienteController {
 
 
     @FXML
-    private TextField CNHFIeld;
+    private TextField CNHField;
 
     @FXML
-    private TextField cpfField;
+    private TextField CPFField;
 
     @FXML
     private TextField emailField;
@@ -55,8 +59,55 @@ public class TelaCadastroClienteController {
     @FXML
     private Button voltarBtn;
 
+    public TextField getCNHField() {
+        return CNHField;
+    }
+
+    public TextField getCPFField() {
+        return CPFField;
+    }
+
+    public TextField getEmailField() {
+        return emailField;
+    }
+
+    public TextField getEnderecoField() {
+        return enderecoField;
+    }
+
+    public Button getEnviarBtn() {
+        return enviarBtn;
+    }
+
+    public DatePicker getNascimentoDatePicker() {
+        return nascimentoDatePicker;
+    }
+
+    public TextField getNomeField() {
+        return nomeField;
+    }
+
+    public TextField getPagamentoField() {
+        return pagamentoField;
+    }
+
+    public TextField getSenhaField() {
+        return senhaField;
+    }
+
+    public TextField getTelefoneField() {
+        return telefoneField;
+    }
+
+    public Button getVoltarBtn() {
+        return voltarBtn;
+    }
+
     @FXML
-    void enviarBtnClicked(ActionEvent event) {
+    void enviarBtnClicked(ActionEvent event) throws ElementoNuloException, ElementoExisteException, ClienteInvalidoException {
+        controladorCliente.cadastrar(new Cliente(this.getNomeField().getText(), this.getCPFField().getText(), this.getSenhaField().getText(), this.getTelefoneField().getText(
+        ), this.getEmailField().getText(), this.getEnderecoField().getText(), this.getNascimentoDatePicker().getValue(), this.getPagamentoField().getText(),
+                this.getCNHField().getText(), false));
 
     }
 

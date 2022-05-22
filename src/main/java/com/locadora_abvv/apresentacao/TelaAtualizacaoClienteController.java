@@ -1,7 +1,9 @@
 package com.locadora_abvv.apresentacao;
 
+import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.ControladorCliente;
 import com.locadora_abvv.negocios.ControladorFuncionario;
+import com.locadora_abvv.negocios.beans.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +33,50 @@ public class TelaAtualizacaoClienteController {
     @FXML
     private TextField enderecoField;
 
+    public TextField getCNHField() {
+        return CNHField;
+    }
+
+    public TextField getCPFField() {
+        return CPFField;
+    }
+
+    public TextField getEmailField() {
+        return emailField;
+    }
+
+    public TextField getEnderecoField() {
+        return enderecoField;
+    }
+
+    public Button getEnviarBtn() {
+        return enviarBtn;
+    }
+
+    public DatePicker getNascimentoDatePicker() {
+        return nascimentoDatePicker;
+    }
+
+    public TextField getNomeField() {
+        return nomeField;
+    }
+
+    public TextField getPagamentoField() {
+        return pagamentoField;
+    }
+
+    public TextField getSenhaField() {
+        return senhaField;
+    }
+
+    public TextField getTelefoneField() {
+        return telefoneField;
+    }
+
+    public FXMLLoader getFxmlLoader() {
+        return fxmlLoader;
+    }
+
     @FXML
     private Button enviarBtn;
 
@@ -55,7 +101,10 @@ public class TelaAtualizacaoClienteController {
     FXMLLoader fxmlLoader = new FXMLLoader();
 
     @FXML
-    void enviarBtnClicked(ActionEvent event) {
+    void enviarBtnClicked(ActionEvent event) throws ElementoNaoExisteExcepcion {
+        controladorCliente.atualizar(new Cliente(this.getNomeField().getText(), this.getCPFField().getText(), this.getSenhaField().getText(), this.getTelefoneField().getText(
+        ), this.getEmailField().getText(), this.getEnderecoField().getText(), this.getNascimentoDatePicker().getValue(), this.getPagamentoField().getText(),
+                this.getCNHField().getText(), false));
 
     }
 

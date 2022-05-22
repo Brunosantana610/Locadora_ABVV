@@ -1,7 +1,14 @@
 package com.locadora_abvv.apresentacao;
 
-import com.locadora_abvv.negocios.ControladorCliente;
+import com.locadora_abvv.exceptions.ElementoExisteException;
+import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.ElementoNuloException;
+import com.locadora_abvv.exceptions.ModeloInvalidoException;
 import com.locadora_abvv.negocios.ControladorFuncionario;
+import com.locadora_abvv.negocios.ControladorVeiculo;
+import com.locadora_abvv.negocios.beans.Fabricante;
+import com.locadora_abvv.negocios.beans.Modelo;
+import com.locadora_abvv.negocios.beans.Veiculo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,17 +23,20 @@ import java.io.IOException;
 
 public class TelaCadastroVeiculoController {
 
-    ControladorCliente controladorCliente;
+    ControladorVeiculo controladorVeiculo;
     ControladorFuncionario controladorFuncionario;
 
     FXMLLoader fxmlLoader = new FXMLLoader();
 
 
     @FXML
+    private TextField anoField;
+
+    @FXML
     private TextField capacidadeField;
 
     @FXML
-    private TextField corFIeld;
+    private TextField corField;
 
     @FXML
     private TextArea descricaoField;
@@ -38,19 +48,64 @@ public class TelaCadastroVeiculoController {
     private TextField fabricanteField;
 
     @FXML
-    private TextField modeloFIeld;
+    private TextField modeloField;
 
     @FXML
     private TextField placaField;
 
     @FXML
-    private TextField valorMultaFIeld;
+    private TextField valorMultaField;
 
     @FXML
     private Button voltarBtn;
 
+    public TextField getAnoField() {
+        return anoField;
+    }
+
+    public TextField getCapacidadeField() {
+        return capacidadeField;
+    }
+
+    public TextField getCorField() {
+        return corField;
+    }
+
+    public TextArea getDescricaoField() {
+        return descricaoField;
+    }
+
+    public Button getEnviarBtn() {
+        return enviarBtn;
+    }
+
+    public TextField getFabricanteField() {
+        return fabricanteField;
+    }
+
+    public TextField getModeloField() {
+        return modeloField;
+    }
+
+    public TextField getPlacaField() {
+        return placaField;
+    }
+
+    public TextField getValorMultaField() {
+        return valorMultaField;
+    }
+
+    public Button getVoltarBtn() {
+        return voltarBtn;
+    }
+
     @FXML
-    void enviarBtnClicked(ActionEvent event) {
+    void enviarBtnClicked(ActionEvent event) throws ModeloInvalidoException, ElementoNuloException, ElementoExisteException {
+        int capacidade = Integer.parseInt(this.getCapacidadeField().getText());
+        double multa = Double.parseDouble(this.getValorMultaField().getText());
+        int ano = Integer.parseInt(this.getAnoField().getText());
+        controladorVeiculo.cadastrar(new Veiculo(this.getCorField().getText(), capacidade, this.getDescricaoField().getText(), this.getPlacaField().getText(),
+                multa, new Modelo(this.getModeloField().getText(), ano), new Fabricante(getFabricanteField().getText())));
 
     }
 

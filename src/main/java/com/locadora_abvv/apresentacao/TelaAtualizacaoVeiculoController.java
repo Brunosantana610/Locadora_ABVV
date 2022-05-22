@@ -1,7 +1,12 @@
 package com.locadora_abvv.apresentacao;
 
+import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.ControladorCliente;
 import com.locadora_abvv.negocios.ControladorFuncionario;
+import com.locadora_abvv.negocios.ControladorVeiculo;
+import com.locadora_abvv.negocios.beans.Fabricante;
+import com.locadora_abvv.negocios.beans.Modelo;
+import com.locadora_abvv.negocios.beans.Veiculo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,11 +21,13 @@ import java.io.IOException;
 
 public class TelaAtualizacaoVeiculoController {
 
-    ControladorCliente controladorCliente;
+    ControladorVeiculo controladorVeiculo;
     ControladorFuncionario controladorFuncionario;
 
     FXMLLoader fxmlLoader = new FXMLLoader();
 
+    @FXML
+    private TextField anoField;
     @FXML
     private TextField FabricanteField;
 
@@ -45,11 +52,48 @@ public class TelaAtualizacaoVeiculoController {
     @FXML
     private TextField valorMultaField;
 
+    public TextField getFabricanteField() {
+        return FabricanteField;
+    }
+
+    public TextField getCapacidadeField() {
+        return capacidadeField;
+    }
+
+    public TextField getCorField() {
+        return corField;
+    }
+
+    public TextArea getDescricaoField() {
+        return descricaoField;
+    }
+
+    public TextField getModeloField() {
+        return modeloField;
+    }
+
+    public TextField getPlacaField() {
+        return placaField;
+    }
+
+    public TextField getValorMultaField() {
+        return valorMultaField;
+    }
+
+    public TextField getAnoField() {
+        return anoField;
+    }
+
     @FXML
     private Button voltarBtn;
 
     @FXML
-    void enviarBtnClicked(ActionEvent event) {
+    void enviarBtnClicked(ActionEvent event) throws ElementoNaoExisteExcepcion {
+        int capacidade = Integer.parseInt(this.getCapacidadeField().getText());
+        double multa = Double.parseDouble(this.getValorMultaField().getText());
+        int ano = Integer.parseInt(this.getAnoField().getText());
+        controladorVeiculo.atualizar(new Veiculo(this.getCorField().getText(), capacidade, this.getDescricaoField().getText(), this.getPlacaField().getText(),
+                multa, new Modelo(this.getModeloField().getText(), ano), new Fabricante(getFabricanteField().getText())));
 
     }
 

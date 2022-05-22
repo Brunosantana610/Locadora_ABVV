@@ -6,8 +6,6 @@ import com.locadora_abvv.exceptions.ElementoExisteException;
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.exceptions.ElementoNuloException;
 import com.locadora_abvv.exceptions.FuncionarioInvalidoException;
-import com.locadora_abvv.negocios.beans.Cliente;
-import com.locadora_abvv.negocios.beans.Fabricante;
 import com.locadora_abvv.negocios.beans.Funcionario;
 
 public class ControladorFuncionario {
@@ -60,7 +58,7 @@ public class ControladorFuncionario {
             this.repositorioFuncionarios.remover(f);
         }
         else{
-            // throw new FuncaoInvalidaException();
+            throw new ElementoNaoExisteExcepcion(f);
         }
     }
 
@@ -69,14 +67,14 @@ public class ControladorFuncionario {
             this.repositorioFuncionarios.atualizar(f);
         }
         else{
-            // throw new FuncaoInvalidaException();
+            throw new ElementoNaoExisteExcepcion(f);
         }
     }
 
     public Funcionario buscar(String cpf){
         for(Funcionario fun: repositorioFuncionarios.listar()){
-            if(this.funcionario.getCpf().equals(cpf)){
-                return funcionario;
+            if(fun.getCpf().equals(cpf)){
+                return fun;
             }
         }
         return null;

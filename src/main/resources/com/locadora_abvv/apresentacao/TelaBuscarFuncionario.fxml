@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -29,11 +28,10 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
                <children>
-                  <AnchorPane fx:id="mostrarFuncionarioPane" prefHeight="303.0" prefWidth="602.0">
+                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
                      <children>
                         <Button fx:id="irBTn" layoutX="288.0" layoutY="177.0" mnemonicParsing="false" onAction="#irBtnClicked" text="Ir" />
-                        <TextField fx:id="removerCpcTextField" layoutX="226.0" layoutY="127.0" prefHeight="25.0" prefWidth="166.0" promptText="Digite o CPF do funcionário" />
-                        <DialogPane layoutX="109.0" layoutY="104.0" prefHeight="62.0" prefWidth="400.0" visible="false" />
+                        <TextField fx:id="removerCPFTextField" layoutX="226.0" layoutY="127.0" prefHeight="25.0" prefWidth="166.0" promptText="Digite o CPF do funcionário" />
                      </children>
                   </AnchorPane>
                </children>

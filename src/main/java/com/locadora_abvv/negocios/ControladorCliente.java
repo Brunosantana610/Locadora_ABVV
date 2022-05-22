@@ -67,8 +67,8 @@ public class ControladorCliente {
 
     public Cliente buscar(String cpf){
         for(Cliente cli: repositorioClientes.listar()){
-            if(this.cliente.getCpf().equals(cpf)){
-                return cliente;
+            if(cli.getCpf().equals(cpf)){
+                return cli;
             }
         }
         return null;

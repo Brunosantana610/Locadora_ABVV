@@ -51,4 +51,12 @@ public class ControladorVeiculo {
     public void atualizar(Veiculo v) throws ElementoNaoExisteExcepcion {
         this.repositorioVeiculos.atualizar(v);
     }
+
+    public Veiculo buscar(String placa){
+        for(Veiculo vei:repositorioVeiculos.listar()){
+            if(vei.getPlaca().equals(placa))
+                return vei;
+        }
+        return null;
+    }
 }

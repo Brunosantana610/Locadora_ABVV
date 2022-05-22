@@ -1,7 +1,9 @@
 package com.locadora_abvv.apresentacao;
 
+import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.ControladorCliente;
 import com.locadora_abvv.negocios.ControladorFuncionario;
+import com.locadora_abvv.negocios.beans.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +24,10 @@ public class TelaRemoverClienteController {
     @FXML
     private Button irBTn;
 
+    public TextField getRemoverCpcTextField() {
+        return removerCpcTextField;
+    }
+
     @FXML
     private TextField removerCpcTextField;
 
@@ -29,7 +35,9 @@ public class TelaRemoverClienteController {
     private Button voltarBtn;
 
     @FXML
-    void irBtnClicked(ActionEvent event) {
+    void irBtnClicked(ActionEvent event) throws ElementoNaoExisteExcepcion {
+        Cliente cliente = controladorCliente.buscar(getRemoverCpcTextField().getText());
+        controladorCliente.remover(cliente);
 
     }
 

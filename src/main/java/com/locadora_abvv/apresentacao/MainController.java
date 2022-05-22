@@ -20,6 +20,10 @@ public class MainController {
     ControladorCliente controladorCliente = new ControladorCliente();
     ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
 
+    FXMLLoader fxmlLoader = new FXMLLoader();
+
+    @FXML
+    private Button cadastrarBtn;
     @FXML
     private Button entrarBtn;
 
@@ -47,6 +51,8 @@ public class MainController {
         this.senha = senha;
     }
 
+
+
     public TextField getUser() {
         return user;
     }
@@ -61,10 +67,14 @@ public class MainController {
     }
 
 
-
+    @FXML
+    void cadastrarBtnClicked(ActionEvent event) throws IOException {
+        Parent telaCadastros = fxmlLoader.load(getClass().getResource("Cadastro.fxml"));
+        Stage novaJanela = (Stage) cadastrarBtn.getScene().getWindow();
+        novaJanela.setScene(new Scene(telaCadastros));
+    }
 
     private void checkLogin() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
         Parent telaCliente = fxmlLoader.load(getClass().getResource("TelaCliente.fxml"));
         Parent telaFuncionario = fxmlLoader.load(getClass().getResource("TelaFuncionario.fxml"));
         Parent telaAdm = fxmlLoader.load(getClass().getResource("TelaAdm.fxml"));

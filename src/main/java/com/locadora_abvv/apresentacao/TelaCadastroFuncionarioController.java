@@ -119,7 +119,7 @@ public class TelaCadastroFuncionarioController {
 
     @FXML
     void voltarBtnClicked(ActionEvent event) throws IOException {
-        Parent tela = fxmlLoader.load(getClass().getResource("TelaAdm.fxml"));
+        Parent tela = fxmlLoader.load(getClass().getResource("Main.fxml"));
 
         Stage novaJanela = (Stage) voltarBtn.getScene().getWindow();
         novaJanela.setScene(new Scene(tela));

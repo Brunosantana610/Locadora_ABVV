@@ -21,7 +21,6 @@ import java.io.IOException;
 public class TelaCadastroClienteController {
 
     ControladorCliente controladorCliente;
-    ControladorFuncionario controladorFuncionario;
 
     FXMLLoader fxmlLoader = new FXMLLoader();
 
@@ -113,21 +112,10 @@ public class TelaCadastroClienteController {
 
     @FXML
     void voltarBtnClicked(ActionEvent event) throws IOException {
-        if (controladorFuncionario.getFuncionario().getFuncao()==1){
-            Parent tela = fxmlLoader.load(getClass().getResource("TelaFuncionario.fxml"));
+            Parent tela = fxmlLoader.load(getClass().getResource("Main.fxml"));
 
             Stage novaJanela = (Stage) voltarBtn.getScene().getWindow();
             novaJanela.setScene(new Scene(tela));
         }
-
-        else if(controladorFuncionario.getFuncionario().getFuncao()==2){
-            Parent tela = fxmlLoader.load(getClass().getResource("TelaAdm.fxml"));
-
-            Stage novaJanela = (Stage) voltarBtn.getScene().getWindow();
-            novaJanela.setScene(new Scene(tela));
-        }
-
-
-    }
 
 }

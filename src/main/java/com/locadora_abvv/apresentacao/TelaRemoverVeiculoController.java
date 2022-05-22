@@ -1,7 +1,10 @@
 package com.locadora_abvv.apresentacao;
 
+import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.negocios.ControladorCliente;
 import com.locadora_abvv.negocios.ControladorFuncionario;
+import com.locadora_abvv.negocios.ControladorVeiculo;
+import com.locadora_abvv.negocios.beans.Veiculo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import java.io.IOException;
 public class TelaRemoverVeiculoController {
 
     ControladorFuncionario controladorFuncionario;
+    ControladorVeiculo controladorVeiculo;
 
     FXMLLoader fxmlLoader = new FXMLLoader();
 
@@ -29,8 +33,14 @@ public class TelaRemoverVeiculoController {
     @FXML
     private Button voltarBtn;
 
+    public TextField getRemoverPlacaTextField() {
+        return removerPlacaTextField;
+    }
+
     @FXML
-    void irBtnClicked(ActionEvent event) {
+    void irBtnClicked(ActionEvent event) throws ElementoNaoExisteExcepcion {
+        Veiculo veiculo = controladorVeiculo.buscar(getRemoverPlacaTextField().getText());
+        controladorVeiculo.remover(veiculo);
 
     }
 

@@ -46,6 +46,8 @@
                         <Button fx:id="enviarBtn" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" onAction="#enviarBtnClicked" text="Enviar" />
                         <TextField fx:id="FabricanteField" layoutX="100.0" layoutY="220.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o nome do fabricante" />
                         <TextArea fx:id="descricaoField" layoutX="100.0" layoutY="84.0" prefHeight="37.0" prefWidth="320.0" promptText="Digite a descrição do veículo" />
+                        <Text layoutX="432.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano:" wrappingWidth="29.982421875" />
+                        <TextField fx:id="anoField" layoutX="460.0" layoutY="193.0" prefHeight="25.0" prefWidth="106.0" promptText="Digite o ano" />
                      </children>
                   </AnchorPane>
                </children>

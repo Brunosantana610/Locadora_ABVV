@@ -49,7 +49,7 @@
                         <TextField fx:id="matriculaField" layoutX="70.0" layoutY="263.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o número da matrícula do funcionário" />
                         <DatePicker layoutX="131.0" layoutY="203.0" />
                         <Button fx:id="enviarBtn" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" onAction="#enviarBtnClicked" text="Enviar" />
-                        <TextField fx:id="salarioFIeld" layoutX="70.0" layoutY="233.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o salário do funcionário" />
+                        <TextField fx:id="salarioField" layoutX="70.0" layoutY="233.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o salário do funcionário" />
                         <Text layoutX="336.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:" />
                         <TextField fx:id="funcaoField" layoutX="380.0" layoutY="203.0" prefHeight="25.0" prefWidth="214.0" promptText="digite 1 para atendente, 2 para adm" />
                      </children>

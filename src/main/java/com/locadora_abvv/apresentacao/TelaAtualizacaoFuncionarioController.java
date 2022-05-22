@@ -1,6 +1,7 @@
 package com.locadora_abvv.apresentacao;
 
 import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
+import com.locadora_abvv.exceptions.FuncionarioInvalidoException;
 import com.locadora_abvv.negocios.ControladorFuncionario;
 import com.locadora_abvv.negocios.beans.Funcionario;
 import javafx.event.ActionEvent;
@@ -107,7 +108,7 @@ public class TelaAtualizacaoFuncionarioController {
     }
 
     @FXML
-    void enviarBtnClicked(ActionEvent event) throws ElementoNaoExisteExcepcion {
+    void enviarBtnClicked(ActionEvent event) throws ElementoNaoExisteExcepcion, FuncionarioInvalidoException {
         double salario = Double.parseDouble(getSalarioField().getText());
         int matricula = Integer.parseInt(getMatriculaField().getText());
         int funcao = Integer.parseInt(getFuncaoField().getText());

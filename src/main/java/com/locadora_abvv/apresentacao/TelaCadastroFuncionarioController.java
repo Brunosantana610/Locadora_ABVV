@@ -111,8 +111,9 @@ public class TelaCadastroFuncionarioController {
         double salario = Double.parseDouble(getSalarioField().getText());
         int matricula = Integer.parseInt(getMatriculaField().getText());
         int funcao = Integer.parseInt(getFuncaoField().getText());
-        controladorFuncionario.atualizar(new Funcionario(this.getNomeField().getText(), this.getCPFField().getText(), this.getSenhaFIeld().getText(), this.getTelefoneField().getText(),
-                this.getEmailField().getText(), this.getEnderecoField().getText(), null, salario, matricula, funcao));
+        Funcionario funcionario = new Funcionario(getNomeField().getText(), getCPFField().getText(), getSenhaFIeld().getText(), getTelefoneField().getText(),
+                getEmailField().getText(), getEnderecoField().getText(), getNascimentoDatePicker().getValue(), salario, matricula, funcao);
+        controladorFuncionario.atualizar(funcionario);
 
 
     }

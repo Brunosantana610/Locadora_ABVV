@@ -29,7 +29,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6FA;" VBox.vgrow="ALWAYS">
                <children>
-                  <AnchorPane fx:id="nascimentoDatePicker" prefHeight="303.0" prefWidth="602.0">
+                  <AnchorPane prefHeight="303.0" prefWidth="602.0">
                      <children>
                         <Text layoutX="15.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
                         <Text layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
@@ -47,7 +47,7 @@
                         <TextField fx:id="emailField" layoutX="70.0" layoutY="143.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o email" />
                         <TextField fx:id="enderecoField" layoutX="70.0" layoutY="173.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o endereço" />
                         <TextField fx:id="matriculaField" layoutX="70.0" layoutY="263.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o número da matrícula do funcionário" />
-                        <DatePicker layoutX="131.0" layoutY="203.0" />
+                        <DatePicker fx:id="nascimentoDatePicker" layoutX="131.0" layoutY="203.0" />
                         <Button fx:id="enviarBtn" layoutX="488.0" layoutY="263.0" mnemonicParsing="false" onAction="#enviarBtnClicked" text="Enviar" />
                         <TextField fx:id="salarioField" layoutX="70.0" layoutY="233.0" prefHeight="20.0" prefWidth="320.0" promptText="Digite o salário do funcionário" />
                         <Text layoutX="336.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:" />

@@ -102,9 +102,10 @@ public class TelaAtualizacaoClienteController {
 
     @FXML
     void enviarBtnClicked(ActionEvent event) throws ElementoNaoExisteExcepcion {
-        controladorCliente.atualizar(new Cliente(this.getNomeField().getText(), this.getCPFField().getText(), this.getSenhaField().getText(), this.getTelefoneField().getText(
-        ), this.getEmailField().getText(), this.getEnderecoField().getText(), this.getNascimentoDatePicker().getValue(), this.getPagamentoField().getText(),
-                this.getCNHField().getText(), false));
+        Cliente cliente = new Cliente(getNomeField().getText(), getCPFField().getText(), getSenhaField().getText(), getTelefoneField().getText(
+        ), getEmailField().getText(), getEnderecoField().getText(), getNascimentoDatePicker().getValue(), getPagamentoField().getText(),
+                getCNHField().getText(), false);
+        controladorCliente.atualizar(cliente);
 
     }
 

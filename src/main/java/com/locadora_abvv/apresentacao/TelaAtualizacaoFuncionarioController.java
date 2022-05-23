@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -42,7 +43,7 @@ public class TelaAtualizacaoFuncionarioController {
     private TextField matriculaField;
 
     @FXML
-    private AnchorPane nascimentoDatePicker;
+    private DatePicker nascimentoDatePicker;
 
     @FXML
     private TextField nomeField;
@@ -87,7 +88,7 @@ public class TelaAtualizacaoFuncionarioController {
         return matriculaField;
     }
 
-    public AnchorPane getNascimentoDatePicker() {
+    public DatePicker getNascimentoDatePicker() {
         return nascimentoDatePicker;
     }
 
@@ -112,9 +113,9 @@ public class TelaAtualizacaoFuncionarioController {
         double salario = Double.parseDouble(getSalarioField().getText());
         int matricula = Integer.parseInt(getMatriculaField().getText());
         int funcao = Integer.parseInt(getFuncaoField().getText());
-        controladorFuncionario.atualizar(new Funcionario(this.getNomeField().getText(), this.getCPFField().getText(), this.getSenhaFIeld().getText(), this.getTelefoneField().getText(),
-                this.getEmailField().getText(), this.getEnderecoField().getText(), null, salario, matricula, funcao));
-
+        Funcionario funcionario = new Funcionario(getNomeField().getText(), getCPFField().getText(), getSenhaFIeld().getText(), getTelefoneField().getText(),
+                getEmailField().getText(), getEnderecoField().getText(), getNascimentoDatePicker().getValue(), salario, matricula, funcao);
+        controladorFuncionario.atualizar(funcionario);
     }
 
     @FXML

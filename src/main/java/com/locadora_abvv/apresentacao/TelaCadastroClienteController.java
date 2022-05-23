@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class TelaCadastroClienteController {
 
-    ControladorCliente controladorCliente;
+    ControladorCliente controladorCliente = new ControladorCliente();
 
     FXMLLoader fxmlLoader = new FXMLLoader();
 
@@ -104,9 +104,10 @@ public class TelaCadastroClienteController {
 
     @FXML
     void enviarBtnClicked(ActionEvent event) throws ElementoNuloException, ElementoExisteException, ClienteInvalidoException {
-        controladorCliente.cadastrar(new Cliente(this.getNomeField().getText(), this.getCPFField().getText(), this.getSenhaField().getText(), this.getTelefoneField().getText(
-        ), this.getEmailField().getText(), this.getEnderecoField().getText(), this.getNascimentoDatePicker().getValue(), this.getPagamentoField().getText(),
-                this.getCNHField().getText(), false));
+        Cliente cliente = new Cliente(getNomeField().getText(), getCPFField().getText(), getSenhaField().getText(), getTelefoneField().getText(
+        ), getEmailField().getText(), getEnderecoField().getText(), getNascimentoDatePicker().getValue(), getPagamentoField().getText(),
+                getCNHField().getText(), false);
+        controladorCliente.cadastrar(cliente);
 
     }
 

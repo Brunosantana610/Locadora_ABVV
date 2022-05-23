@@ -1,7 +1,6 @@
 package com.locadora_abvv.apresentacao;
 
 import com.locadora_abvv.exceptions.ElementoExisteException;
-import com.locadora_abvv.exceptions.ElementoNaoExisteExcepcion;
 import com.locadora_abvv.exceptions.ElementoNuloException;
 import com.locadora_abvv.exceptions.ModeloInvalidoException;
 import com.locadora_abvv.negocios.ControladorFuncionario;
@@ -104,8 +103,9 @@ public class TelaCadastroVeiculoController {
         int capacidade = Integer.parseInt(this.getCapacidadeField().getText());
         double multa = Double.parseDouble(this.getValorMultaField().getText());
         int ano = Integer.parseInt(this.getAnoField().getText());
-        controladorVeiculo.cadastrar(new Veiculo(this.getCorField().getText(), capacidade, this.getDescricaoField().getText(), this.getPlacaField().getText(),
-                multa, new Modelo(this.getModeloField().getText(), ano), new Fabricante(getFabricanteField().getText())));
+        Veiculo veiculo = new Veiculo(getCorField().getText(), capacidade, getDescricaoField().getText(), getPlacaField().getText(),
+                multa, new Modelo(getModeloField().getText(), ano), new Fabricante(getFabricanteField().getText()));
+        controladorVeiculo.cadastrar(veiculo);
 
     }
 

@@ -92,9 +92,9 @@ public class TelaAtualizacaoVeiculoController {
         int capacidade = Integer.parseInt(this.getCapacidadeField().getText());
         double multa = Double.parseDouble(this.getValorMultaField().getText());
         int ano = Integer.parseInt(this.getAnoField().getText());
-        controladorVeiculo.atualizar(new Veiculo(this.getCorField().getText(), capacidade, this.getDescricaoField().getText(), this.getPlacaField().getText(),
-                multa, new Modelo(this.getModeloField().getText(), ano), new Fabricante(getFabricanteField().getText())));
-
+        Veiculo veiculo = new Veiculo(getCorField().getText(), capacidade, getDescricaoField().getText(), getPlacaField().getText(),
+                multa, new Modelo(getModeloField().getText(), ano), new Fabricante(getFabricanteField().getText()));
+        controladorVeiculo.atualizar(veiculo);
     }
 
     @FXML
